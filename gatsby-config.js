@@ -1,3 +1,4 @@
+
 module.exports = {
   siteMetadata: {
     title: "bognasPortfolio",
@@ -6,8 +7,8 @@ module.exports = {
     {
       resolve: "gatsby-source-contentful",
       options: {
-        accessToken: "99kgEx1ja9XQMpN5AzRtV753Y1HLyV4-OXDvnyWRJJQ",
-        spaceId: "3izr731s7l9v",
+        accessToken: ,
+        spaceId: "",
       },
     },
     "gatsby-plugin-styled-components",
