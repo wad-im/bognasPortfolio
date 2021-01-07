@@ -1,5 +1,5 @@
 import * as React from "react"
-import {Layout, Head} from '../components'
+import {Layout, Head, Intro} from '../components'
 
 
 
@@ -7,7 +7,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <Head/>
-        <h1>Hi, this will be Bogna's portfolio website.</h1>
+        <Intro/>
     </Layout>
   )
 }

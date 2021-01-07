@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import GlobalStyle from "../GlobalStyles"
-import {Footer} from './index'
+import {Header, Footer} from './index'
 
 const Layout = (props) => {
     return (
         <PageContainer>
             <GlobalStyle/>
+            <Header/>
             <Content as="main">
                 {props.children}
             </Content>
@@ -19,7 +20,7 @@ const PageContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr repeat(12, minmax(auto, 4.2rem)) 1fr;
     column-gap: 2rem;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: auto 1fr auto;
     min-height: 100vh;
     width: 100%;
 
