@@ -1,13 +1,13 @@
 import * as React from "react"
+import {Layout} from '../components'
 
 
 
-// markup
 const IndexPage = () => {
   return (
-    <div>
-      <h1>Hi, this will be Bogna's portfolio website.</h1>
-    </div>
+    <Layout>
+        <h1>Hi, this will be Bogna's portfolio website.</h1>
+    </Layout>
   )
 }
 
