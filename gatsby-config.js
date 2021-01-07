@@ -3,7 +3,7 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: "bognasPortfolio",
+    title: "Bogna Gebalska - freelance graphic desiger | Copenhagen",
   },
   plugins: [
     {

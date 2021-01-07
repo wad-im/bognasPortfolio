@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "start": "env-cmd .env.development gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
@@ -28,5 +28,8 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
   }
 }
