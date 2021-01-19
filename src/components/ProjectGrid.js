@@ -15,7 +15,7 @@ const ProjectGrid = ()=> {
                         featureImage {
                             title
                             description
-                            fluid (maxWidth: 400, quality: 100) {
+                            fluid (maxWidth: 700, quality: 100) {
                                 ...GatsbyContentfulFluid_withWebp
                             }
                           }
@@ -27,7 +27,6 @@ const ProjectGrid = ()=> {
     return (
         
         <div>
-            <h2>Project Grid</h2>
             <GridContainer>
             {data.allContentfulProject.edges.map((edge)=> {
                 const title = edge.node.projectTitle
@@ -54,9 +53,12 @@ const ProjectGrid = ()=> {
 }
 
 const GridContainer = styled.div`
+    margin-top: 2rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    
 `
 
 export default ProjectGrid
