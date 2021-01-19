@@ -1,5 +1,5 @@
 import * as React from "react"
-import {Layout, Head, Intro} from '../components'
+import {Layout, Head, Intro, ProjectGrid} from '../components'
 
 
 
@@ -8,6 +8,7 @@ const IndexPage = () => {
     <Layout>
       <Head/>
         <Intro/>
+        <ProjectGrid/>
     </Layout>
   )
 }

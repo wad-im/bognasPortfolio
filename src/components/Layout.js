@@ -27,7 +27,7 @@ const PageContainer = styled.div`
 `
 const Content = styled.div`
     grid-column: 2 / span 12;
-    padding: 2rem;
+    padding: 2rem 0rem;
     
 `
 
