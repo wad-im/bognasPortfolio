@@ -28,7 +28,7 @@ const HeaderContainer= styled.nav`
     width: 100%;
     height: 10vh;
     grid-column: 2 /span 12;
-    padding: 2rem;
+    padding: 2rem 0rem 1rem 0rem;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -36,8 +36,8 @@ const HeaderContainer= styled.nav`
 const Menu = styled.ul`
     display: flex;
     list-style: none;
-    width: calc(100%/3);
-    justify-content: space-between;
+    width:100%;
+    justify-content: flex-end;
     li {
         position: relative;
     }
@@ -46,6 +46,7 @@ const Menu = styled.ul`
 
 const StyledLink = styled(Link)`
     text-decoration: none;
+    margin-left: 8rem;
     text-transform: uppercase;
     color: black;
     &.active {

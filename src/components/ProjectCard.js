@@ -22,7 +22,7 @@ const HoverMotion = {
     },
 }
 
-const ProjectCard = ({title, category, id, featureImageTitle, featureImageDescription, featureImage})=>{
+const ProjectCard = ({title,  id,  featureImageDescription, featureImage})=>{
      return (
         <ProjectItem key={id} whileHover="hover" initial="rest" animate="rest">
             <Img fluid={featureImage} alt={featureImageDescription}/>
@@ -45,6 +45,7 @@ const ProjectOverlay = styled(motion.div)`
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 `
 
 

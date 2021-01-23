@@ -6,5 +6,11 @@ const GlobalStyle = createGlobalStyle`
       padding: 0;
       box-sizing: border-box;
   }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
 `
 export default GlobalStyle

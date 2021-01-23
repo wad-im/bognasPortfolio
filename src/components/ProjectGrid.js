@@ -25,39 +25,29 @@ const ProjectGrid = ()=> {
             }
     `)
     return (
-        
-        <div>
             <GridContainer>
             {data.allContentfulProject.edges.map((edge)=> {
-                const title = edge.node.projectTitle
-                const category = edge.node.category
-                const id = edge.node.id
-                const featureImageTitle = edge.node.featureImage.title
-                const featureImageDescription = edge.node.featureImage.description
-                const featureImage = edge.node.featureImage.fluid
                 return(
                     <ProjectCard
-                     title={title}
-                     category={category}
-                     key={id}
-                     featureImageTitle={featureImageTitle}
-                     featureImageDescription={featureImageDescription}
-                    featureImage={featureImage}
+                     title={edge.node.projectTitle}
+                     category={edge.node.category}
+                     key={edge.node.id}
+                     featureImageTitle={edge.node.featureImage.title}
+                     featureImageDescription={edge.node.featureImage.description}
+                    featureImage={edge.node.featureImage.fluid}
                      />
                 )
             })} 
         </GridContainer>
-        </div>
-        
     )
 }
 
 const GridContainer = styled.div`
-    margin-top: 2rem;
+    margin-top: 6rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    grid-column-gap: 2rem;
-    grid-row-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-column-gap: 3.75rem;
+    grid-row-gap: 3.75rem;
     
 `
 
