@@ -11,8 +11,9 @@ const Footer = ()=>{
 
 const FooterContainer = styled.div`
     width: 100%;
-    grid-column: 2 / span 12;
-    padding: 2rem;
+    grid-column: 2 / span 1;
+    padding: 2rem 0;
+    p {font-size: 1rem;}
 `
 
 

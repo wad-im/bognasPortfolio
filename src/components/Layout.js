@@ -18,16 +18,15 @@ const Layout = (props) => {
 
 const PageContainer = styled.div`
     display: grid;
-    grid-template-columns: 1fr repeat(12, minmax(auto, 4.2rem)) 1fr;
-    column-gap: 2rem;
+    grid-template-columns: 1fr minmax(auto, 1320px) 1fr;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
     width: 100%;
-
+    padding: 0 2rem;
 `
 const Content = styled.div`
-    grid-column: 2 / span 12;
     padding: 2rem 0rem;
+    grid-column: 2 / span 1;
     
 `
 

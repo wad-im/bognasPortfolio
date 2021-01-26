@@ -6,10 +6,11 @@ import {ProjectCard} from '../components'
 const ProjectGrid = ()=> {
     const data = useStaticQuery(graphql`
         query ProjectData {
-            allContentfulProject{
+            allContentfulProject (sort: { fields: order, order: ASC }){
                 edges {
                     node {
                         projectTitle
+                        subtitle
                         category
                         id
                         featureImage {
@@ -30,6 +31,7 @@ const ProjectGrid = ()=> {
                 return(
                     <ProjectCard
                      title={edge.node.projectTitle}
+                     subtitle={edge.node.subtitle}
                      category={edge.node.category}
                      key={edge.node.id}
                      featureImageTitle={edge.node.featureImage.title}
@@ -45,10 +47,10 @@ const ProjectGrid = ()=> {
 const GridContainer = styled.div`
     margin-top: 6rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-column-gap: 3.75rem;
-    grid-row-gap: 3.75rem;
-    
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 4.545%;
+    grid-template-rows: auto;
+    grid-row-gap: 9.09%;
 `
 
 export default ProjectGrid
