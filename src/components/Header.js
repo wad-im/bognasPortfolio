@@ -65,19 +65,19 @@ const Header = ({pathname})=>{
                 <li>
                     <StyledLink initial={pathname === '/' ? 'show' : 'rest'} whileHover='hover' animate={pathname === '/' ? 'show' : 'rest'} activeClassName='active' to="/">
                         Work
-                        <Line variants={HoverMotion} pathname={pathname} link={'/'} color={'rgba(212, 184, 175, 0.7)'}/>
+                        <Line variants={HoverMotion} pathname={pathname} link={'/'} color={'rgba(212, 184, 175, 0.5)'}/>
                     </StyledLink>
                 </li>
                 <li>
                     <StyledLink initial={pathname === '/about' ? 'show' : 'rest'} whileHover='hover' animate={pathname === '/about' ? 'show' : 'rest'} activeClassName='active' to="/about">
                         About
-                        <Line variants={HoverMotion} pathname={pathname} link={'/about'}color={'rgba(184, 213, 222, 0.7)'}/>
+                        <Line variants={HoverMotion} pathname={pathname} link={'/about'}color={'rgba(184, 213, 222, 0.5)'}/>
                     </StyledLink>
                 </li>
                 <li>
                     <StyledLink initial={pathname === '/contact' ? 'show' : 'rest'} whileHover='hover' animate={pathname === '/contact' ? 'show' : 'rest'} activeClassName='active' to="/contact">
                         Contact
-                        <ContactLine variants={ContactMotion} pathname={pathname} link={'/contact'} color={'rgba(120, 180, 180, 0.7)'}/> 
+                        <ContactLine variants={ContactMotion} pathname={pathname} link={'/contact'} color={'rgba(120, 180, 180, 0.5)'}/> 
                     </StyledLink>
                 </li>
             </Menu>
@@ -116,7 +116,7 @@ const Line = styled(motion.div)`
     position: absolute;
     right: 0;
     bottom: -30%;
-    height: 20px;
+    height: 1.041vw;
     z-index: -1;
     width: 100%;
     opacity: ${props => props.pathname===props.link ? '1' : '0'};
@@ -126,7 +126,7 @@ const ContactLine = styled(motion.div)`
     position: absolute;
     right: 0;
     bottom: -30%;
-    height: 20px;
+    height: 1.041vw;
     z-index: -1;
     width: 100%;
     transform-origin: top right;

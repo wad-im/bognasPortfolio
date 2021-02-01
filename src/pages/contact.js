@@ -6,6 +6,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import {HoverMotion, ProjectOverlay} from '../components/ProjectCard'
 import {motion} from 'framer-motion'
+import LinkedinIcon from '../images/linkedin.svg'
 
 const ContactPage = ({location})=>{
     const pathname = location.pathname
@@ -35,7 +36,7 @@ const ContactPage = ({location})=>{
                 <p className="description">
                 I am looking forward to hear about new opportunities and emerging projects. You are welcome to contact me with any inquiry about design and my services.LinkedIn
                 </p>
-                <a href="https://dk.linkedin.com/in/bogna-anna-gebalska" title="Linkedin Profile">Linkedin</a>
+                <a href="https://dk.linkedin.com/in/bogna-anna-gebalska" title="Linkedin Profile"><img src={LinkedinIcon} alt="Linkedin Icon linking to Bogna's profile"/></a>
             </div>
             </ContactGrid>
             
@@ -60,6 +61,7 @@ const ContactGrid = styled.section`
     .description {
         margin: 3rem 0;
     }
+    
 `
 
 const ContactPageImage = styled(Img)`

@@ -16,7 +16,7 @@ const Intro = ()=>{
 
 export const Title = styled.h2`
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-bottom: .83vw;
 `
 
 export default Intro

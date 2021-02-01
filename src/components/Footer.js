@@ -13,7 +13,11 @@ const FooterContainer = styled.div`
     width: 100%;
     grid-column: 2 / span 1;
     padding: 2rem 0;
-    p {font-size: 1rem;}
+    display: flex;
+    justify-content: flex-end;
+    p {
+        font-size: .75rem;
+    }
 `
 
 

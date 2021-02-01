@@ -12,7 +12,7 @@ const AboutPage = ({location})=>{
     query {
         contentfulAsset (id: {eq: "d6e37ce1-6c01-5dc7-8bcb-80bcb92b7600"})
             {description
-            fluid(quality: 100, maxHeight: 400){
+            fluid(quality: 100){
                 ...GatsbyContentfulFluid_withWebp
             }}
        }
@@ -52,6 +52,9 @@ const AboutGrid = styled.div`
 
 const ProfileImg = styled(Img)`
     grid-column: 3 / span 1;
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 1 / 1;
 `
 
 export default AboutPage

@@ -19,7 +19,7 @@ const Layout = ({children, pathname}) => {
 
 const PageContainer = styled.div`
     display: grid;
-    grid-template-columns: 1fr minmax(auto, 1320px) 1fr;
+    grid-template-columns: 15.625% 68.75% 15.625%;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
     width: 100%;
