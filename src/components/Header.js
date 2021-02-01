@@ -30,6 +30,33 @@ export const HoverMotion = {
         },
     },
 }
+export const ContactMotion = {
+    rest: {
+        rotate: -15,
+        transition: {
+            duration: 0.75,
+            type: "tween",
+            ease: "backInOut"
+        }
+    },
+    show: {
+        rotate: 0,
+        transition: {
+            duration: 0.75,
+            type: "tween",
+            ease: "backInOut"
+        }
+    },
+    hover: {
+        rotate: 0,
+        transtion: {
+            duration: 0.75,
+            type: "tween",
+            ease: "backInOut"
+        },
+    },
+}
+
 
 const Header = ({pathname})=>{
       return (
@@ -50,7 +77,7 @@ const Header = ({pathname})=>{
                 <li>
                     <StyledLink initial={pathname === '/contact' ? 'show' : 'rest'} whileHover='hover' animate={pathname === '/contact' ? 'show' : 'rest'} activeClassName='active' to="/contact">
                         Contact
-                        <Line variants={HoverMotion} pathname={pathname} link={'/contact'} color={'rgba(120, 180, 180, 0.7)'}/> 
+                        <ContactLine variants={ContactMotion} pathname={pathname} link={'/contact'} color={'rgba(120, 180, 180, 0.7)'}/> 
                     </StyledLink>
                 </li>
             </Menu>
@@ -93,6 +120,17 @@ const Line = styled(motion.div)`
     z-index: -1;
     width: 100%;
     opacity: ${props => props.pathname===props.link ? '1' : '0'};
+    background-color: ${props => props.color};
+`
+const ContactLine = styled(motion.div)`
+    position: absolute;
+    right: 0;
+    bottom: -30%;
+    height: 20px;
+    z-index: -1;
+    width: 100%;
+    transform-origin: top right;
+    opacity: 1;
     background-color: ${props => props.color};
 `
 
