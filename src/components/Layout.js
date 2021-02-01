@@ -3,13 +3,14 @@ import styled from 'styled-components'
 import GlobalStyle from "../GlobalStyles"
 import {Header, Footer} from './index'
 
-const Layout = (props) => {
-    return (
+const Layout = ({children, pathname}) => {
+    console.log(pathname)
+      return (
         <PageContainer>
             <GlobalStyle/>
-            <Header/>
+            <Header pathname={pathname}/>
             <Content as="main">
-                {props.children}
+                {children}
             </Content>
             <Footer/>
         </PageContainer>

@@ -5,7 +5,9 @@ import styled from 'styled-components';
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-const AboutPage = ()=>{
+
+const AboutPage = ({location})=>{
+    const pathname = location.pathname
     const data = useStaticQuery(graphql`
     query {
         contentfulAsset (id: {eq: "d6e37ce1-6c01-5dc7-8bcb-80bcb92b7600"})
@@ -16,7 +18,7 @@ const AboutPage = ()=>{
        }
     `)
     return (
-        <Layout>
+        <Layout pathname={pathname}>
             <Title>Bogna Anna</Title>
             <AboutGrid>
                 <div className="about_description">

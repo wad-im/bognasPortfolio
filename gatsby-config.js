@@ -3,8 +3,8 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: "Bogna - freelance graphic desiger | Copenhagen",
-    description: "Freelance graphic designer for hire. Experienced designer for logos, publications and illustrations.",
+    title: "Bogna Anna | Graphic Design and Architecture | Copenhagen",
+    description: "Freelance graphic designer and architect, experienced in working with design projects for small and medium companies and individual clients.",
     author: "Bogna Anna",
   },
   plugins: [

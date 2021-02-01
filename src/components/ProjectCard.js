@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Img from "gatsby-image" 
 import {motion} from 'framer-motion'
 
-const HoverMotion = {
+export const HoverMotion = {
     rest: {
         opacity: 0,
         transition: {
@@ -36,9 +36,8 @@ const ProjectCard = ({title,  id,  featureImageDescription, featureImage, subtit
 
 const ProjectItem = styled(motion.div)`
     position: relative;
-    cursor: pointer;
 `
-const ProjectOverlay = styled(motion.div)`
+export const ProjectOverlay = styled(motion.div)`
     position: absolute;
     top: 0;
     left: 0;

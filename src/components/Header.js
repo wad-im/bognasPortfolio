@@ -1,22 +1,57 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
+import {motion} from 'framer-motion'
 
-const Header = ()=>{
-    return (
+
+export const HoverMotion = {
+    rest: {
+        opacity: 0,
+        transition: {
+            duration: 0.5,
+            type: "tween",
+            ease: "easeIn"
+        }
+    },
+    show: {
+        opacity: 1,
+        transition: {
+            duration: 0.5,
+            type: "tween",
+            ease: "easeIn"
+        }
+    },
+    hover: {
+        opacity: 1,
+        transtion: {
+            duration: 0.5,
+            type: "tween",
+            ease: "easeOut"
+        },
+    },
+}
+
+const Header = ({pathname})=>{
+      return (
         <HeaderContainer>
             <Menu>
                 <li>
-                    <StyledLink activeClassName="active"to="/">Work</StyledLink>
-                    
+                    <StyledLink initial={pathname === '/' ? 'show' : 'rest'} whileHover='hover' animate={pathname === '/' ? 'show' : 'rest'} activeClassName='active' to="/">
+                        Work
+                        <Line variants={HoverMotion} pathname={pathname} link={'/'} color={'rgba(212, 184, 175, 0.7)'}/>
+                    </StyledLink>
                 </li>
                 <li>
-                    <StyledLink activeClassName="active" to="/about">About</StyledLink>
-                
+                    <StyledLink initial={pathname === '/about' ? 'show' : 'rest'} whileHover='hover' animate={pathname === '/about' ? 'show' : 'rest'} activeClassName='active' to="/about">
+                        About
+                        <Line variants={HoverMotion} pathname={pathname} link={'/about'}color={'rgba(184, 213, 222, 0.7)'}/>
+                    </StyledLink>
                 </li>
                 <li>
-                    <StyledLink activeClassName="active" to="/contact">Contact</StyledLink>
-                
+                    <StyledLink initial={pathname === '/contact' ? 'show' : 'rest'} whileHover='hover' animate={pathname === '/contact' ? 'show' : 'rest'} activeClassName='active' to="/contact">
+                        Contact
+                        <Line variants={HoverMotion} pathname={pathname} link={'/contact'} color={'rgba(120, 180, 180, 0.7)'}/> 
+                    </StyledLink>
                 </li>
             </Menu>
         </HeaderContainer>
@@ -38,20 +73,27 @@ const Menu = styled.ul`
     list-style: none;
     width:100%;
     justify-content: flex-end;
-    li {
-        position: relative;
-    }
-
 `
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(motion.custom(Link))`
     text-decoration: none;
     margin-left: 8rem;
     text-transform: uppercase;
     color: #707070;
     font-weight: 700;
-    
+    padding-bottom: -0.5rem;
+    position: relative;
+`
 
+const Line = styled(motion.div)`
+    position: absolute;
+    right: 0;
+    bottom: -30%;
+    height: 20px;
+    z-index: -1;
+    width: 100%;
+    opacity: ${props => props.pathname===props.link ? '1' : '0'};
+    background-color: ${props => props.color};
 `
 
 

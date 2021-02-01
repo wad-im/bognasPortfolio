@@ -8,7 +8,7 @@ const Intro = ()=>{
                 Bogna Anna
             </Title>
             <h3>
-            A graphic designer based in Copenhagen, DK.
+            Graphic designer and architect based in Copenhagen, DK.
             </h3>
         </div>
     )

@@ -3,9 +3,10 @@ import {Layout, Head, Intro, ProjectGrid} from '../components'
 
 
 
-const IndexPage = () => {
+const IndexPage = ({location}) => {
+   const pathname = location.pathname
   return (
-    <Layout>
+    <Layout pathname={pathname}>
       <Head/>
         <Intro/>
         <ProjectGrid/>
