@@ -11,6 +11,7 @@ const SEO = ({title, description}) => {
         defaultTitle,
         defaultDescription,
         author,
+        defaultImage,
         defaultColor
       } = site.siteMetadata
 
@@ -18,6 +19,7 @@ const SEO = ({title, description}) => {
         title: `${title} | ${defaultTitle}` || defaultTitle,
         description: description || defaultDescription,
         author: author,
+        image: defaultImage,
         color: defaultColor
       }
 
@@ -28,6 +30,7 @@ const SEO = ({title, description}) => {
           {seo.description && (
             <meta property="og:description" content={seo.description} />
           )}
+          <meta property="og:image" content={seo.image}/>
           <meta name="author" content={seo.author}></meta>
           <meta property="og:url" content={href}/>
           <meta property="og:type" content="website"/>
@@ -37,11 +40,11 @@ const SEO = ({title, description}) => {
             <meta name="twitter:description" content={seo.description} />
           )}
           <meta itemprop="name" content={site.title}/>
-            <meta itemprop="description" content={site.description}/>
+          <meta itemprop="description" content={site.description}/>
             
-            <meta name="theme-color" content={seo.defaultcolor}/>
-            <meta name="msapplication-navbutton-color" content={seo.color}/>
-            <meta name="apple-mobile-web-app-status-bar-style" content={seo.color}/>  
+          <meta name="theme-color" content={seo.defaultcolor}/>
+          <meta name="msapplication-navbutton-color" content={seo.color}/>
+          <meta name="apple-mobile-web-app-status-bar-style" content={seo.color}/>  
         </Helmet>
       )
 }
@@ -56,6 +59,7 @@ const query = graphql`
         defaultTitle: title
         defaultDescription: description
         author
+        defaultImage: image
         defaultColor: themeColor
       }
     }
