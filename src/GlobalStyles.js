@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     max-width: 120rem;
-    font-family:"sofia-pro";
+    font-family:"sofia-pro", sans-serif;
     color: #707070;
     margin: 0 auto;
     }
