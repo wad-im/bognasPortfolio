@@ -10,6 +10,7 @@ const Head = ({currentURL, pathname})=>{
                     title
                     description
                     author
+                    image
                     
                 }
             }
@@ -31,18 +32,18 @@ const Head = ({currentURL, pathname})=>{
             <meta property="og:type" content="website"/>
             <meta property="og:title" content={data.site.siteMetadata.title}/>
             {/* <meta property="og:url" content="http://mywebsite.com"/> */}
-            {/* <meta property="og:image" content={data.site.siteMetadata.defaultImage}/> */}
+            <meta property="og:image" content={data.site.siteMetadata.image}/>
             <meta property="og:description" content={data.site.siteMetadata.description}/>
 
             {/* <meta name="twitter:card" content="summary"/> */}
             <meta name="twitter:title" content={data.site.siteMetadata.title}/>
             <meta name="twitter:description" content={data.site.siteMetadata.description}/>
             <meta name="twitter:creator" content={data.site.siteMetadata.author}/>
-            {/* <meta name="twitter:image" content={data.site.siteMetadata.defaultImage}/> */}
+            <meta name="twitter:image" content={data.site.siteMetadata.image}/>
 
             <meta itemprop="name" content={data.site.siteMetadata.title}/>
             <meta itemprop="description" content={data.site.siteMetadata.description}/>
-            {/* <meta itemprop="image" content={data.site.siteMetadata.defaultImage}/> */}
+            <meta itemprop="image" content={data.site.siteMetadata.image}/>
 
         </Helmet>
         
