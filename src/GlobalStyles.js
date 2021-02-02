@@ -14,35 +14,34 @@ const GlobalStyle = createGlobalStyle`
     }
   
   h2 {
-    font-size: 1.6vw;
+    font-size: clamp(1.28rem, 1.6vw, 1.92rem);
     font-weight: 700;
   }
   h3 {
-    font-size: 1.25vw;
+    font-size: clamp(1rem, 1.25vw, 1.5rem);
     font-weight: 300;
   }
   h4 {
-    font-size: 1.145vw;
+    font-size: clamp(0.916rem,1.145vw, 1.374rem);
     font-weight: 700;
   }
   h5 {
-    font-size: 1.145vw;
+    font-size: clamp(0.916rem,1.145vw, 1.374rem);
     font-weight: 300;
   }
   p {
-    font-size: 1.25vw;
+    font-size: clamp(1rem, 1.25vw, 1.5rem);
     font-weight: 300;
     line-height: 1.5;
   }
   a {
     text-decoration: none;
-    font-size: 1.25vw;
+    font-size: clamp(0.916rem,1.145vw, 1.374rem);
     font-weight: 300;
     color: #707070;
   }
   li {
     font-weight: 700;
-    font-size: 1.375rem;
   }
 `
 export default GlobalStyle

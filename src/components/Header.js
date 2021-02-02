@@ -116,7 +116,7 @@ const Line = styled(motion.div)`
     position: absolute;
     right: 0;
     bottom: -30%;
-    height: 1.041vw;
+    height: clamp(0.83rem, 1.041vw, 1.25rem);
     z-index: -1;
     width: 100%;
     opacity: ${props => props.pathname===props.link ? '1' : '0'};
@@ -126,7 +126,7 @@ const ContactLine = styled(motion.div)`
     position: absolute;
     right: 0;
     bottom: -30%;
-    height: 1.041vw;
+    height: clamp(0.83rem, 1.041vw, 1.25rem);
     z-index: -1;
     width: 100%;
     transform-origin: top right;

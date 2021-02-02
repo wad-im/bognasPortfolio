@@ -34,12 +34,10 @@ const AboutPage = ({location})=>{
 }
 
 const AboutGrid = styled.div`
-    margin-top: 6rem;
+    margin-top: 4vw;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 4.545%;
-    grid-template-rows: 400px;
-    grid-auto-flow: column;
      .about_description {
         grid-column: span 2;
         column-count: 2;
