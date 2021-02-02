@@ -32,10 +32,11 @@ const ContactPage = ({location})=>{
             
             <div>
                 <Title>Bogna Anna</Title>
-                <p>myemail@gmail.com</p>
+                <p>bognaanna.design@gmail.com</p>
                 <p className="description">
-                I am looking forward to hear about new opportunities and emerging projects. You are welcome to contact me with any inquiry about design and my services.LinkedIn
+                Previously, living in Milan, Stockholm and Lodz, I am now based in Copenhagen, where I am looking forward to hear about design projects and new opportunities.
                 </p>
+                <p>You are welcome to contact me with an inquiry about design and my services. Just <span>drop me a line!</span></p>
                 <a href="https://dk.linkedin.com/in/bogna-anna-gebalska" title="Linkedin Profile"><img src={LinkedinIcon} alt="Linkedin Icon linking to Bogna's profile"/></a>
             </div>
             </ContactGrid>

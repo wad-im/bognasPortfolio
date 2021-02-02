@@ -3,8 +3,8 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: "Bogna Anna | Graphic Design and Architecture | Copenhagen",
-    description: "Freelance graphic designer and architect, experienced in working with design projects for small and medium companies and individual clients.",
+    title: "Bogna Anna - Graphic Design and Architecture",
+    description: "Freelance graphic designer and architect based in Copenhagen, experienced in design projects for small and medium companies and individual clients",
     author: "Bogna Anna",
   },
   plugins: [
@@ -35,5 +35,6 @@ module.exports = {
         },
       },
     },
+    "gatsby-plugin-preload-fonts",
   ],
 };
