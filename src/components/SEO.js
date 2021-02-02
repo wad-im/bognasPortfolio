@@ -16,7 +16,7 @@ const SEO = ({title, description}) => {
       } = site.siteMetadata
 
     const seo = {
-        title: `${title} | ${defaultTitle}` || defaultTitle,
+        title: title ? `${title} | ${defaultTitle}` : defaultTitle,
         description: description || defaultDescription,
         author: author,
         image: defaultImage,
@@ -26,21 +26,29 @@ const SEO = ({title, description}) => {
       return (
         <Helmet htmlAttributes={{lang: 'en',}} title={seo.title}>
           <meta name="description" content={seo.description} />
+          <meta name="author" content={seo.author}></meta>
+
+          {/* <link rel="base" href="http://mywebsite.com"/>
+          <link rel="canonical" href="http://mywebsite.com"/> */}
+
           {seo.title && <meta property="og:title" content={seo.title} />}
           {seo.description && (
             <meta property="og:description" content={seo.description} />
           )}
           <meta property="og:image" content={seo.image}/>
-          <meta name="author" content={seo.author}></meta>
           <meta property="og:url" content={href}/>
           <meta property="og:type" content="website"/>
-            <meta property="og:description" content={seo.description}/>
+          
+          <meta name="twitter:card" content="summary_large_image"/>
           {seo.title && <meta name="twitter:title" content={seo.title} />}
           {seo.description && (
             <meta name="twitter:description" content={seo.description} />
           )}
+          <meta name="twitter:image" content={seo.image}/>
+
           <meta itemprop="name" content={site.title}/>
           <meta itemprop="description" content={site.description}/>
+          <meta itemprop="image" content={seo.image}/>
             
           <meta name="theme-color" content={seo.defaultcolor}/>
           <meta name="msapplication-navbutton-color" content={seo.color}/>
