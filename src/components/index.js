@@ -1,7 +1,6 @@
 export {default as Layout} from './Layout'
 export {default as Header} from './Header'
 export {default as Footer} from './Footer'
-export {default as Head} from './Head'
 export {default as Intro} from './Intro'
 export {default as ProjectGrid} from './ProjectGrid'
 export {default as ProjectCard} from './ProjectCard'
