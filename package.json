@@ -6,12 +6,12 @@
   "description": "Freelance graphic designer and architect, experienced in working with design projects for small and medium companies and individual clients.",
   "author": "Bogna Anna Gebalska",
   "scripts": {
+    "preload-fonts": "gatsby-preload-fonts",
     "develop": "gatsby develop",
     "start": "env-cmd .env.development gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "preload-fonts": "gatsby-preload-fonts"
+    "clean": "gatsby clean"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.12.0",
