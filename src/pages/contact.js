@@ -1,12 +1,13 @@
 import React from 'react'
-import {Layout} from '../components'
+import {Head, Layout} from '../components'
 import { Title } from '../components/Intro'
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import {HoverMotion, ProjectOverlay} from '../components/ProjectCard'
 import {motion} from 'framer-motion'
-import LinkedinIcon from '../images/linkedin.svg'
+import LinkedinIcon from '../images/iconmonstr-linkedin-1.svg'
+import IssuuIcon from '../images/issuu-icon_1.svg'
 
 const ContactPage = ({location})=>{
     const pathname = location.pathname
@@ -14,13 +15,14 @@ const ContactPage = ({location})=>{
     query {
         contentfulAsset (id: {eq: "b7258b53-fc27-5f56-aec3-bf034c2c63d7"})
             {description
-            fluid(quality: 100, maxWidth: 700){
+            fluid(quality: 80, maxWidth: 700){
                 ...GatsbyContentfulFluid_withWebp
             }}
        }
     `)
     return (
         <Layout pathname={pathname}>
+            <Head currentUrl={location.href} pathname={location.pathname}/>
             <ContactGrid>
             <motion.div className="contact_page_image" whileHover="hover" initial="rest" animate="rest">
                 <ContactPageImage fluid={data.contentfulAsset.fluid} alt={data.contentfulAsset.description}/>
@@ -30,14 +32,19 @@ const ContactPage = ({location})=>{
                 </ProjectOverlay>
             </motion.div>
             
-            <div>
-                <Title>Bogna Anna</Title>
-                <p>bognaanna.design@gmail.com</p>
-                <p className="description">
-                Previously, living in Milan, Stockholm and Lodz, I am now based in Copenhagen, where I am looking forward to hear about design projects and new opportunities.
-                </p>
-                <p>You are welcome to contact me with an inquiry about design and my services. Just <span>drop me a line!</span></p>
-                <a href="https://dk.linkedin.com/in/bogna-anna-gebalska" title="Linkedin Profile"><img src={LinkedinIcon} alt="Linkedin Icon linking to Bogna's profile"/></a>
+            <div className="contact-text">
+                <div className="content">
+                    <Title>Bogna Anna</Title>
+                    <p>bognaanna.design@gmail.com</p>
+                    <p className="description">
+                    Previously, living in Milan, Stockholm and Lodz, I am now based in Copenhagen, where I am looking forward to hear about design projects and new opportunities.
+                    </p>
+                    <p>You are welcome to contact me with an inquiry about design and my services. Just <span className="underlined">drop me a line!<Line color='rgba(230, 102, 54, 0.5)'/></span></p>
+                </div>
+                <div className="social-icons">
+                    <a href="https://dk.linkedin.com/in/bogna-anna-gebalska" title="Linkedin Profile"><img src={LinkedinIcon} alt="Linkedin Icon linking to Bogna's profile"/></a>
+                    <a href="https://issuu.com/bognaannagebalska" title="Portfolio on Issuu"><img src={IssuuIcon} alt="Issue Icon linking to Bogna's profile"/></a>
+                </div>
             </div>
             </ContactGrid>
             
@@ -59,14 +66,39 @@ const ContactGrid = styled.section`
         position: relative;
         grid-column: 1 /span 2;
     }
+    .contact-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
     .description {
         margin: 3rem 0;
+    }
+    .social-icons {
+        display: flex;
+        align-items: flex-end;
+        a {
+            margin-right: 1.5rem;
+        }
+    }
+    .underlined {
+        position: relative;
     }
     
 `
 
 const ContactPageImage = styled(Img)`
     grid-column: 1 / span 2;
+`
+
+const Line = styled.div`
+    position: absolute;
+    right: 0;
+    bottom: -30%;
+    height: clamp(0.83rem, 1.041vw, 1.25rem);
+    z-index: -1;
+    width: 100%;
+    background-color: ${props => props.color};
 `
 
 

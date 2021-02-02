@@ -4,7 +4,6 @@ import GlobalStyle from "../GlobalStyles"
 import {Header, Footer} from './index'
 
 const Layout = ({children, pathname}) => {
-    console.log(pathname)
       return (
         <PageContainer>
             <GlobalStyle/>

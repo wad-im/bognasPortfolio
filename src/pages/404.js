@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import { Head } from "../components"
 
 // styles
 const pageStyles = {
@@ -25,9 +26,10 @@ const codeStyles = {
 }
 
 // markup
-const NotFoundPage = () => {
+const NotFoundPage = ({location}) => {
   return (
     <main style={pageStyles}>
+      <Head currentUrl={location.href} pathname={location.pathname}/>
       <title>Not found</title>
       <h1 style={headingStyles}>Page not found</h1>
       <p style={paragraphStyles}>

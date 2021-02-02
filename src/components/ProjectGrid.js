@@ -16,7 +16,7 @@ const ProjectGrid = ()=> {
                         featureImage {
                             title
                             description
-                            fluid (maxWidth: 700, quality: 100) {
+                            fluid (maxWidth: 700, quality: 80) {
                                 ...GatsbyContentfulFluid_withWebp
                             }
                           }

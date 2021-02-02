@@ -1,5 +1,5 @@
 import React from 'react'
-import {Layout} from '../components'
+import {Head, Layout} from '../components'
 import { Title } from '../components/Intro'
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from "gatsby"
@@ -12,13 +12,14 @@ const AboutPage = ({location})=>{
     query {
         contentfulAsset (id: {eq: "d6e37ce1-6c01-5dc7-8bcb-80bcb92b7600"})
             {description
-            fluid(quality: 100){
+            fluid(quality: 80, maxWidth: 400, maxHeight: 400){
                 ...GatsbyContentfulFluid_withWebp
             }}
        }
     `)
     return (
         <Layout pathname={pathname}>
+            <Head currentUrl={location.href} pathname={location.pathname}/>
             <Title>Bogna Anna</Title>
             <AboutGrid>
                 <div className="about_description">

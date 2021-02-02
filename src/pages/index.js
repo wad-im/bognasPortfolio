@@ -4,10 +4,9 @@ import {Layout, Head, Intro, ProjectGrid} from '../components'
 
 
 const IndexPage = ({location}) => {
-   const pathname = location.pathname
   return (
-    <Layout pathname={pathname}>
-      <Head/>
+    <Layout pathname={location.pathname}>
+      <Head currentUrl={location.href} pathname={location.pathname}/>
         <Intro/>
         <ProjectGrid/>
     </Layout>
