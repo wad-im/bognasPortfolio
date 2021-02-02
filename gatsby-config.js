@@ -6,7 +6,7 @@ module.exports = {
     title: "Bogna Anna - Graphic Design and Architecture",
     description: "Freelance graphic designer and architect based in Copenhagen, experienced in design projects for small and medium companies and individual clients",
     author: "Bogna Anna",
-    image: "../src/images/BognaAnnaPortfolio.jpg"
+    themeColor: "#707070"
   },
   plugins: [
     {

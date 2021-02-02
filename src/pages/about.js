@@ -1,9 +1,10 @@
 import React from 'react'
-import {Head, Layout} from '../components'
+import {Layout} from '../components'
 import { Title } from '../components/Intro'
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import SEO from '../components/SEO';
 
 
 const AboutPage = ({location})=>{
@@ -19,7 +20,7 @@ const AboutPage = ({location})=>{
     `)
     return (
         <Layout pathname={pathname}>
-            <Head currentUrl={location.href} pathname={location.pathname}/>
+            <SEO title="About"/>
             <Title>Bogna Anna</Title>
             <AboutGrid>
                 <div className="about_description">
