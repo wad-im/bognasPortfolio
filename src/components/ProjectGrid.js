@@ -51,6 +51,16 @@ const GridContainer = styled.div`
     grid-column-gap: 4.545%;
     grid-template-rows: auto;
     grid-row-gap: 9.09%;
+
+    @media (max-width: 83rem) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap:4.545%;
+    }
+    @media (max-width: 36rem) {
+        grid-template-columns: 1fr;
+        grid-row-gap: 3.75rem;
+    }
+    
 `
 
 export default ProjectGrid

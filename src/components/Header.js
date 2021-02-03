@@ -89,11 +89,14 @@ const Header = ({pathname})=>{
 const HeaderContainer= styled.nav`
     width: 100%;
     height: 10vh;
-    grid-column: 2 /span 1;
+    grid-column: 2 / span 1;
     padding: 2rem 0rem 1rem 0rem;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    @media (max-width: 922px) {
+        grid-column-start: 1;
+    }  
 `
 const Menu = styled.ul`
     display: flex;
@@ -104,7 +107,7 @@ const Menu = styled.ul`
 
 const StyledLink = styled(motion.custom(Link))`
     text-decoration: none;
-    margin-left: 8rem;
+    margin-left: 7.27vw;
     text-transform: uppercase;
     color: #707070;
     font-weight: 700;

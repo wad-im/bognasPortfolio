@@ -31,12 +31,15 @@ const PageContainer = styled.div`
         grid-template-columns: 4% auto 4%;
     }
     @media (max-width: 922px) {
-        grid-template-columns: 0% auto 0%;
+        grid-template-columns: 1fr;
     }
 `
 const Content = styled.div`
     padding: 2rem 0rem;
-    grid-column: 2 / span 1;    
+    grid-column: 2 / span 1;
+    @media (max-width: 922px) {
+        grid-column-start: 1;
+    }   
 `
 
 export default Layout

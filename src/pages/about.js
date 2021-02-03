@@ -43,7 +43,7 @@ const AboutGrid = styled.div`
      .about_description {
         grid-column: span 2;
         column-count: 2;
-        column-gap: 3.125vw;
+        column-gap: 4.545%;
         p {
             margin-bottom: 1.5vw;
         }
