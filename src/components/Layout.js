@@ -23,11 +23,20 @@ const PageContainer = styled.div`
     min-height: 100vh;
     width: 100%;
     padding: 0 2rem;
+
+    @media (max-width: 1220px) {
+        grid-template-columns: 8% auto 8%;
+    }
+    @media (max-width: 1004px) {
+        grid-template-columns: 4% auto 4%;
+    }
+    @media (max-width: 922px) {
+        grid-template-columns: 0% auto 0%;
+    }
 `
 const Content = styled.div`
     padding: 2rem 0rem;
-    grid-column: 2 / span 1;
-    
+    grid-column: 2 / span 1;    
 `
 
 export default Layout

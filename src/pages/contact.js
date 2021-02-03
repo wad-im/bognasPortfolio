@@ -55,7 +55,7 @@ const ContactPage = ({location})=>{
 }
 
 const ContactGrid = styled.section`
-    margin-top: 6rem;
+    margin-top: 4vw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 4.545%;
@@ -73,7 +73,7 @@ const ContactGrid = styled.section`
         justify-content: space-between;
     }
     .description {
-        margin: 3rem 0;
+        margin: 1.5vw 0;
     }
     .social-icons {
         display: flex;
@@ -84,6 +84,15 @@ const ContactGrid = styled.section`
     }
     .underlined {
         position: relative;
+    }
+    @media (max-width: 54rem) {
+        grid-template-columns: 1fr 1fr;
+        .contact_page_image {
+            grid-column: 1 / span 1;
+        }
+        .social-icons{
+            margin-top: 3vw;
+        }
     }
     
 `

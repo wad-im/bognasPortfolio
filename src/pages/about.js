@@ -43,9 +43,9 @@ const AboutGrid = styled.div`
      .about_description {
         grid-column: span 2;
         column-count: 2;
-        column-gap: 60px;
+        column-gap: 3.125vw;
         p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.5vw;
         }
     }
 `
