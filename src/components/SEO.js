@@ -28,7 +28,6 @@ const SEO = ({title, description}) => {
         "@type": "WebSite",
         "name": "Bogna Anna - Graphic Design and Architecture",
         "description": "Portfolio Website of freelance graphic designer and architect Bogna Anna Gebalska.",
-        // "url": "",
         "author" : {
             "@type": "Person",
             "name": "Bogna Anna Gebalska",
