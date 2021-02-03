@@ -111,7 +111,7 @@ const StyledLink = styled(motion.custom(Link))`
     text-transform: uppercase;
     color: #707070;
     font-weight: 700;
-    padding-bottom: -0.5rem;
+    padding: 0 0.2rem;
     position: relative;
 `
 

@@ -23,6 +23,38 @@ const SEO = ({title, description}) => {
         color: defaultColor
       }
 
+      const SchemaOrgJSONLD = {
+        "@context": "https://schema.org/",
+        "@type": "WebSite",
+        "name": "Bogna Anna - Graphic Design and Architecture",
+        "description": "Portfolio Website of freelance graphic designer and architect Bogna Anna Gebalska.",
+        // "url": "",
+        "author" : {
+            "@type": "Person",
+            "name": "Bogna Anna Gebalska",
+            "email": "bognaanna.design@gmail.com",
+            "jobTitle": "Graphic Designer and Architect",
+            "description": "Bogna Anna Gebalska is a freelance graphic designer and architect based in Copenhagen, Denmark.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Copenhagen, Denmark"
+            },
+            "sameAs": [
+                "https://dk.linkedin.com/in/bogna-anna-gebalska",
+                "https://issuu.com/bognaannagebalska"
+              ]
+        },
+        "copyrightNotice": "All rights reserved. Bogna Anna Gebalska.",
+        "offer": {
+            "@type": "Offer",
+            "description": "Graphic Design and Architecture",
+            "itemOffered": {
+                "@type": "Service",
+                "description": "Freelance Graphic Design and Architecture."
+            }
+        }      
+      }
+
       return (
         <Helmet htmlAttributes={{lang: 'en',}} title={seo.title}>
           <meta name="description" content={seo.description} />
@@ -52,7 +84,11 @@ const SEO = ({title, description}) => {
             
           <meta name="theme-color" content={seo.defaultcolor}/>
           <meta name="msapplication-navbutton-color" content={seo.color}/>
-          <meta name="apple-mobile-web-app-status-bar-style" content={seo.color}/>  
+          <meta name="apple-mobile-web-app-status-bar-style" content={seo.color}/>
+
+           <script type="application/ld+json">
+            {JSON.stringify(SchemaOrgJSONLD)}
+           </script>
         </Helmet>
       )
 }
