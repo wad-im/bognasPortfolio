@@ -38,5 +38,18 @@ module.exports = {
       },
     },
     "gatsby-plugin-preload-fonts",
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Bogna Anna Design`,
+        short_name: `Bogna Anna Design`,
+        start_url: `/`,
+        background_color: `#fff`,
+        theme_color: `#707070`,
+        display: `standalone`,
+        icon: '../../favicon.svg',
+        lang: `en`,
+      },
+    },
   ],
 };
