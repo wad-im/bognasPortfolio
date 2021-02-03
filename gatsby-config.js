@@ -51,5 +51,6 @@ module.exports = {
         lang: `en`,
       },
     },
+    `gatsby-plugin-offline`,
   ],
 };
