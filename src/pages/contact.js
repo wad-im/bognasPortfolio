@@ -25,7 +25,7 @@ const ContactPage = ({location})=>{
         <Layout pathname={pathname}>
             <SEO title="Contact"/>
             <ContactGrid>
-            <motion.div className="contact_page_image" whileHover="hover" initial="rest" animate="rest">
+            <motion.div className="contact_page_image" whileHover="hover" whileTap="hover" initial="rest" animate="rest">
                 <ContactPageImage fluid={data.contentfulAsset.fluid} alt={data.contentfulAsset.description}/>
                 <ProjectOverlay variants={HoverMotion}>
                     <h4>Illustration</h4>
@@ -93,6 +93,10 @@ const ContactGrid = styled.section`
         .social-icons{
             margin-top: 3vw;
         }
+    }
+    @media (max-width: 36rem) {
+        grid-template-columns: 1fr;
+        grid-column-gap: 0;
     }
     
 `

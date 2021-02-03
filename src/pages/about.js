@@ -48,6 +48,15 @@ const AboutGrid = styled.div`
             margin-bottom: 1.5vw;
         }
     }
+    @media (max-width: 36rem) {
+        grid-template-columns: 1fr;
+        grid-column-gap: 0;
+        .about_description {
+            grid-column: span 1;
+            column-count: 1;
+            column-gap: 0;
+        }
+    }
 `
 
 const ProfileImg = styled(Img)`
@@ -55,6 +64,9 @@ const ProfileImg = styled(Img)`
     object-fit: cover;
     width: 100%;
     aspect-ratio: 1 / 1;
+    @media (max-width: 36rem) {
+        grid-column: 1 / span 1;
+    }
 `
 
 export default AboutPage

@@ -41,7 +41,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Bogna Anna Design`,
+        name: `Bogna Anna - Graphic Design and Architecture`,
         short_name: `Bogna Anna Design`,
         start_url: `/`,
         background_color: `#fff`,
@@ -49,6 +49,15 @@ module.exports = {
         display: `standalone`,
         icon: 'src/images/favicon.svg',
         lang: `en`,
+        localize: [
+          {
+            start_url: `/`,
+            lang: `dk`,
+            name: `Bogna Anna - Grafisk Design og Arkitektur`,
+            short_name: `Bogna Anna Design`,
+            description: `Erfaren freelance grafiker og arkitekt i København, tilbyder design og projekter til private og erhvervskunder, organisationer og festivaler.`,
+          },
+        ],
       },
     },
     `gatsby-plugin-offline`,
