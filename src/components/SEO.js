@@ -69,7 +69,6 @@ const SEO = ({title, description}) => {
           <meta name="author" content={seo.author}></meta>
 
           <link rel="base" href={seo.baseUrl}/>
-          <link rel="canonical" href={seo.baseUrl}/>
 
           {seo.title && <meta property="og:title" content={seo.title} />}
           {seo.description && (

@@ -6,7 +6,7 @@ module.exports = {
     title: "Bogna Anna - Graphic Design and Architecture",
     description: "Freelance graphic designer and architect based in Copenhagen, experienced in design projects for small and medium companies and individual clients",
     author: "Bogna Anna Gebalska",
-    siteUrl: "https://bognaanna.design",
+    siteUrl: `https://bognaanna.design`,
     image: '/BognaAnnaPortfolio.jpg',
     themeColor: "#707070"
   },
@@ -22,6 +22,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-source-filesystem",
       options: {
