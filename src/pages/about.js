@@ -43,19 +43,26 @@ const AboutGrid = styled.div`
      .about_description {
         grid-column: span 2;
         column-count: 2;
+        column-width: 100%;
         column-gap: 4.545%;
+        column-fill: balance;
         p {
-            margin-bottom: 1.5vw;
+            margin-bottom: clamp(1rem, 1.25vw, 1.5rem);
         }
     }
-    @media (max-width: 36rem) {
-        grid-template-columns: 1fr;
-        grid-column-gap: 0;
+    @media (max-width: 54rem) {
+        grid-template-columns: 1fr 1fr;
         .about_description {
             grid-column: span 1;
             column-count: 1;
             column-gap: 0;
-        }
+            }
+    }
+
+    @media (max-width: 36rem) {
+        grid-template-columns: 1fr;
+        grid-column-gap: 0;
+        grid-row-gap: 3.75rem;
     }
 `
 
@@ -64,6 +71,9 @@ const ProfileImg = styled(Img)`
     object-fit: cover;
     width: 100%;
     aspect-ratio: 1 / 1;
+    @media (max-width:54rem){
+        grid-column: 2 / span 1;
+    }
     @media (max-width: 36rem) {
         grid-column: 1 / span 1;
     }

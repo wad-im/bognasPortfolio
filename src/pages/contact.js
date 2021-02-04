@@ -40,7 +40,7 @@ const ContactPage = ({location})=>{
                     <p className="description">
                     Previously, living in Milan, Stockholm and Lodz, I am now based in Copenhagen, where I am looking forward to hear about design projects and new opportunities.
                     </p>
-                    <p>You are welcome to contact me with an inquiry about design and my services. Just <span className="underlined">drop me a line!<Line color='rgba(230, 102, 54, 0.5)'/></span></p>
+                    <p>You are welcome to contact me with an inquiry about design and my services. Just <span className="underlined"><a href="mailto:bognaanna.design@gmail.com">drop me a line!</a><Line color='rgba(230, 102, 54, 0.5)'/></span></p>
                 </div>
                 <div className="social-icons">
                     <a href="https://dk.linkedin.com/in/bogna-anna-gebalska" title="Linkedin Profile"><img src={LinkedinIcon} alt="Linkedin Icon linking to Bogna's profile"/></a>
@@ -97,6 +97,7 @@ const ContactGrid = styled.section`
     @media (max-width: 36rem) {
         grid-template-columns: 1fr;
         grid-column-gap: 0;
+        grid-row-gap: 3.75rem;
     }
     
 `
