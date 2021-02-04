@@ -11,6 +11,7 @@ const SEO = ({title, description}) => {
         defaultTitle,
         defaultDescription,
         author,
+        siteUrl,
         defaultImage,
         defaultColor
       } = site.siteMetadata
@@ -20,47 +21,54 @@ const SEO = ({title, description}) => {
         description: description || defaultDescription,
         author: author,
         image: defaultImage,
-        color: defaultColor
+        color: defaultColor,
+        baseUrl: siteUrl
       }
 
-      const SchemaOrgJSONLD = {
-        "@context": "https://schema.org/",
-        "@type": "WebSite",
-        "name": "Bogna Anna - Graphic Design and Architecture",
-        "description": "Portfolio Website of freelance graphic designer and architect Bogna Anna Gebalska.",
-        "author" : {
-            "@type": "Person",
-            "name": "Bogna Anna Gebalska",
-            "email": "bognaanna.design@gmail.com",
-            "jobTitle": "Graphic Designer and Architect",
-            "description": "Bogna Anna Gebalska is a freelance graphic designer and architect based in Copenhagen, Denmark.",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Copenhagen, Denmark"
-            },
-            "sameAs": [
-                "https://dk.linkedin.com/in/bogna-anna-gebalska",
-                "https://issuu.com/bognaannagebalska"
-              ]
-        },
-        "copyrightNotice": "All rights reserved. Bogna Anna Gebalska.",
-        "offer": {
-            "@type": "Offer",
-            "description": "Graphic Design and Architecture",
-            "itemOffered": {
-                "@type": "Service",
-                "description": "Freelance Graphic Design and Architecture."
-            }
-        }      
+      const getSchemaOrgJSONLAD = (seo)=>{
+        const SchemaOrgJSONLD = {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": `${seo.title}`,
+          "description": `${seo.description}`,
+          "url": `${seo.baseUrl}`,
+          "author" : {
+              "@type": "Person",
+              "name": `${seo.author}`,
+              "email": "bognaanna.design@gmail.com",
+              "jobTitle": "Graphic Designer and Architect",
+              "description": "Bogna Anna Gebalska is a freelance graphic designer and architect based in Copenhagen, Denmark.",
+              "url": `${seo.baseUrl}`,
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Copenhagen, Denmark"
+              },
+              "sameAs": [
+                  "https://dk.linkedin.com/in/bogna-anna-gebalska",
+                  "https://issuu.com/bognaannagebalska"
+                ]
+          },
+          "copyrightNotice": "All rights reserved. Bogna Anna Gebalska.",
+          "offer": {
+              "@type": "Offer",
+              "description": "Graphic Design and Architecture",
+              "itemOffered": {
+                  "@type": "Service",
+                  "description": "Freelance Graphic Design and Architecture."
+              }
+          }      
+        }
+        return SchemaOrgJSONLD
       }
+      const SchemaOrgJSONLD = getSchemaOrgJSONLAD(seo)
 
       return (
         <Helmet htmlAttributes={{lang: 'en',}} title={seo.title}>
           <meta name="description" content={seo.description} />
           <meta name="author" content={seo.author}></meta>
 
-          {/* <link rel="base" href="http://mywebsite.com"/>
-          <link rel="canonical" href="http://mywebsite.com"/> */}
+          <link rel="base" href={seo.baseUrl}/>
+          <link rel="canonical" href={seo.baseUrl}/>
 
           {seo.title && <meta property="og:title" content={seo.title} />}
           {seo.description && (
@@ -102,6 +110,7 @@ const query = graphql`
         defaultTitle: title
         defaultDescription: description
         author
+        siteUrl
         defaultImage: image
         defaultColor: themeColor
       }

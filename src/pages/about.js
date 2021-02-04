@@ -49,6 +49,7 @@ const AboutGrid = styled.div`
         p {
             margin-bottom: clamp(1rem, 1.25vw, 1.5rem);
         }
+        
     }
     @media (max-width: 54rem) {
         grid-template-columns: 1fr 1fr;
