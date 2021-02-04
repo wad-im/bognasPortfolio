@@ -52,7 +52,6 @@ module.exports = {
         lang: `en`,
       },
     },
-    `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
   ],
 };
