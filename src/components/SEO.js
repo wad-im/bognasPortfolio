@@ -45,7 +45,8 @@ const SEO = ({title, description}) => {
               },
               "sameAs": [
                   "https://dk.linkedin.com/in/bogna-anna-gebalska",
-                  "https://issuu.com/bognaannagebalska"
+                  "https://issuu.com/bognaannagebalska",
+                  `${seo.baseUrl}`
                 ]
           },
           "copyrightNotice": "All rights reserved. Bogna Anna Gebalska.",
