@@ -52,5 +52,11 @@ module.exports = {
         lang: `en`,
       },
     },
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        createLinkInHead: true,
+      }
+    }
   ],
 };
