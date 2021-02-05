@@ -109,7 +109,7 @@ const StyledLink = styled(motion.custom(Link))`
     text-decoration: none;
     margin-left: 7.27vw;
     text-transform: uppercase;
-    color: #707070;
+    color: rgba(112, 112, 112, 0.7);
     font-weight: 700;
     padding: 0 0.2rem;
     position: relative;
