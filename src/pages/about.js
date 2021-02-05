@@ -50,8 +50,10 @@ const AboutGrid = styled.div`
         
     }
     @media (max-width: 36rem) {
+        margin-top:3rem;
         grid-template-columns: 1fr;
         grid-column-gap: 0;
+        grid-row-gap: 3.75rem;
         .about_description {
             grid-column: span 1;
             column-count: 1;

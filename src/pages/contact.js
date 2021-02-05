@@ -86,6 +86,7 @@ const ContactGrid = styled.section`
         position: relative;
     }
     @media (max-width: 54rem) {
+        margin-top: 3rem;
         grid-template-columns: 1fr 1fr;
         .contact_page_image {
             grid-column: 1 / span 1;
@@ -97,6 +98,7 @@ const ContactGrid = styled.section`
     @media (max-width: 36rem) {
         grid-template-columns: 1fr;
         grid-column-gap: 0;
+        grid-row-gap: 3.75rem;
     }
     
 `
