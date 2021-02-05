@@ -59,12 +59,11 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-gtag',
       options: {
         trackingId: process.env.GOOGLE_TAGMANAGER_ID,
-        head: true,
+        head: false,
         anonymize: true,
-        respectDNT: true,
       }
     }
   ],
