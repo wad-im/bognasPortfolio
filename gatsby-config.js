@@ -58,6 +58,15 @@ module.exports = {
       options: {
         createLinkInHead: 'true'
         }
+    },
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: process.env.GOOGLE_TAGMANAGER_ID,
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+      }
     }
   ],
 };
