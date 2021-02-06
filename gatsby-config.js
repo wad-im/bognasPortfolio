@@ -62,7 +62,7 @@ module.exports = {
       resolve: 'gatsby-plugin-gtag',
       options: {
         trackingId: process.env.GOOGLE_TAGMANAGER_ID,
-        head: false,
+        head: true,
         anonymize: true,
       }
     }
