@@ -16,8 +16,8 @@ const ContactPage = ({location})=>{
     query {
         contentfulAsset (id: {eq: "b7258b53-fc27-5f56-aec3-bf034c2c63d7"})
             {description
-            fluid(quality: 80, maxWidth: 700){
-                ...GatsbyContentfulFluid_withWebp
+            fluid(quality: 70, maxWidth: 700){
+                ...GatsbyContentfulFluid_withWebp_noBase64
             }}
        }
     `)
