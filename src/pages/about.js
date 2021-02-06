@@ -25,8 +25,8 @@ const AboutPage = ({location})=>{
             <AboutGrid>
                 <div className="about_description">
                     <p>As a graphic designer, I place myself at the intersection of art and technical fields. I have a Bachelor’s Degree in Architecture and background in sustainability studies that I am always happy to bring in in my projects.</p>
-                    <p>While designing I enter a space of flow, where I work fully focused and committed to create the best solution in the unique project context.</p>
-                    <p>If not designing, I am most likely guiding yoga classes or practicing myself.</p>
+                    <p>While designing I enter a space of flow, where I work fully focused and committed to create the best solution in the unique project&nbsp;context.</p>
+                    <p>If not designing, I am most likely guiding yoga classes or practicing&nbsp;myself.</p>
                     <p>Since one of my side interest is sustainability and cities,  I founded URBANE films&talks project, discussing documentary films.</p>
                 </div>
                 <ProfileImg fluid={data.contentfulAsset.fluid} alt={data.contentfulAsset.description}/>
@@ -44,6 +44,7 @@ const AboutGrid = styled.div`
         grid-column: span 2;
         column-count: 2;
         column-gap: 4.545%;
+        
         p {
             margin-bottom: 1.5vw;
         }
