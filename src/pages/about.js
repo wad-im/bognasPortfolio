@@ -72,6 +72,9 @@ const ProfileImg = styled(Img)`
     object-fit: cover;
     width: 100%;
     aspect-ratio: 1 / 1;
+    @media (max-width: 54rem) {
+        grid-column: 2 / span 1;
+    }
     @media (max-width: 36rem) {
         grid-column: 1 / span 1;
     }
