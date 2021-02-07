@@ -14,9 +14,9 @@ const ContactPage = ({location})=>{
     const pathname = location.pathname
     const data = useStaticQuery(graphql`
     query {
-        contentfulAsset (id: {eq: "b7258b53-fc27-5f56-aec3-bf034c2c63d7"})
+        contentfulAsset (id: {eq: "398d964c-c0d9-572e-8785-53fd54136985"})
             {description
-            fluid(quality: 70, maxWidth: 700){
+            fluid(quality: 100, maxWidth: 700){
                 ...GatsbyContentfulFluid_withWebp_noBase64
             }}
        }

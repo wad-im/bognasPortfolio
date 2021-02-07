@@ -11,9 +11,9 @@ const AboutPage = ({location})=>{
     const pathname = location.pathname
     const data = useStaticQuery(graphql`
     query {
-        contentfulAsset (id: {eq: "d6e37ce1-6c01-5dc7-8bcb-80bcb92b7600"})
+        contentfulAsset (id: {eq: "8dbb0ae4-1461-5d16-8d4c-205524453d12"})
             {description
-            fluid(quality: 70, maxWidth: 400, maxHeight: 400){
+            fluid(quality: 100, maxWidth: 400, maxHeight: 400){
                 ...GatsbyContentfulFluid_withWebp_noBase64
             }}
        }
