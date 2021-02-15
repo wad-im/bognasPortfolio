@@ -13,6 +13,7 @@ const ProjectGrid = ()=> {
                         subtitle
                         category
                         id
+                        slug
                         featureImage {
                             title
                             description
@@ -34,6 +35,7 @@ const ProjectGrid = ()=> {
                      subtitle={edge.node.subtitle}
                      category={edge.node.category}
                      key={edge.node.id}
+                     slug={edge.node.slug}
                      featureImageTitle={edge.node.featureImage.title}
                      featureImageDescription={edge.node.featureImage.description}
                     featureImage={edge.node.featureImage.fluid}

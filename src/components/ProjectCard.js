@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import Img from "gatsby-image" 
 import {motion} from 'framer-motion'
+import {Link} from 'gatsby'
 
 export const HoverMotion = {
     rest: {
@@ -22,8 +23,9 @@ export const HoverMotion = {
     },
 }
 
-const ProjectCard = ({title,  id,  featureImageDescription, featureImage, subtitle})=>{
+const ProjectCard = ({title,  id,  featureImageDescription, featureImage, subtitle, slug})=>{
      return (
+        <Link to={`/${slug}`}>
         <ProjectItem key={id} whileHover="hover" whileTap="hover" initial="rest" animate="rest">
             <Img fluid={featureImage} alt={featureImageDescription}/>
             <ProjectOverlay variants={HoverMotion}>
@@ -31,6 +33,7 @@ const ProjectCard = ({title,  id,  featureImageDescription, featureImage, subtit
                 <h5>{subtitle}</h5>
             </ProjectOverlay>
         </ProjectItem>
+        </Link>
     )
 }
 
