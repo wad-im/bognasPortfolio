@@ -1,12 +1,15 @@
+import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 
 const Intro = ()=>{
     return (
         <div>
+            <Link to="/">
             <Title>
                 Bogna Anna
             </Title>
+            </Link>
             <h3>
             Graphic designer and architect based in Copenhagen, DK.
             </h3>

@@ -63,7 +63,7 @@ const ProjectPageGrid = styled.section`
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 4.545%;
     grid-template-rows: fit-content;
-    grid-row-gap: 9.09%;
+    /* grid-row-gap: 9.09%; */
 `
 
 const MainImage = styled.div`
@@ -76,10 +76,11 @@ const ProjectDescription = styled.div`
         text-transform: uppercase;
     }
     p {
-        margin-top: 1rem;
+        margin-top: 1.5vw;
     }
 `
 const SmallImage = styled.div`
+    margin-top: 1.5vw;
     grid-column: 3 / span 1;
     grid-row: 2 / span 1;
 `
