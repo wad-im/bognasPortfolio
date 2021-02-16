@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import {ProjectCard} from '../components'
 
 const ProjectGrid = ()=> {
@@ -30,6 +30,7 @@ const ProjectGrid = ()=> {
             <GridContainer>
             {data.allContentfulProject.edges.map((edge)=> {
                 return(
+                    <Link to={edge.node.slug}>
                     <ProjectCard
                      title={edge.node.projectTitle}
                      subtitle={edge.node.subtitle}
@@ -40,6 +41,7 @@ const ProjectGrid = ()=> {
                      featureImageDescription={edge.node.featureImage.description}
                     featureImage={edge.node.featureImage.fluid}
                      />
+                    </Link>
                 )
             })} 
         </GridContainer>

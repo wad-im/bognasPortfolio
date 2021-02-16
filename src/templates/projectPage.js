@@ -1,29 +1,61 @@
 import React from 'react'
-import {useStaticQuery, graphql} from 'gatsby'
+import {graphql} from 'gatsby'
 import styled from 'styled-components'
+import {documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Img from 'gatsby-image'
 import {Intro, Layout} from '../components'
 import SEO from '../components/SEO'
 
-const projectPage = () => {
+const projectPage = ({data}) => {
     return ( 
         <Layout>
-            <SEO/>
+            <SEO title={data.contentfulProject.category} description={data.contentfulProject.seoDescription} />
             <Intro/>
             <ProjectPageGrid>
                 <MainImage>
-                    <Img/>
+                    <Img fluid={data.contentfulProject.bigImage.fluid} alt={data.contentfulProject.bigImage.title}/>
                 </MainImage>
                 <ProjectDescription>
+                    <h4>{data.contentfulProject.case}</h4>
+                    <h4>{data.contentfulProject.client}</h4>
+                    {documentToReactComponents(JSON.parse(data.contentfulProject.projectPageText.raw))}
                     
                 </ProjectDescription>
+                {(data.contentfulProject.testimonial !== null) ? 
+                    <p>{data.contentfulProject.testimonial.testimonial}</p> :
                 <SmallImage>
-                    <Img/>
-                </SmallImage>
+                    <Img fluid={data.contentfulProject.smallImage.fluid} alt={data.contentfulProject.smallImage.title}/>
+                 </SmallImage>
+            }              
             </ProjectPageGrid>
         </Layout>
      );
 }
+
+export const query = graphql`
+    query ($slug: String!){
+        contentfulProject (slug: {eq: $slug}) {
+            seoDescription
+            category
+            case
+            client
+            projectPageText {raw}
+            bigImage {
+                title
+                fluid (quality: 100){
+                    ...GatsbyContentfulFluid_withWebp_noBase64
+                }
+            }
+            smallImage {
+                title
+                fluid (quality: 100){
+                    ...GatsbyContentfulFluid_withWebp_noBase64
+                }
+            }
+            testimonial {testimonial}
+        }
+    }
+`
 
 const ProjectPageGrid = styled.section`
     margin-top: 6rem;
@@ -35,12 +67,13 @@ const ProjectPageGrid = styled.section`
 
 const MainImage = styled.div`
     grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
 `
 const ProjectDescription = styled.div`
-    grid-column: 2 / span 1;
+    grid-column: 3 / span 1;
 `
 const SmallImage = styled.div`
-    grid-column: 2 / span 1;
+    grid-column: 3 / span 1;
     grid-row: 2 / span 1;
 `
  
