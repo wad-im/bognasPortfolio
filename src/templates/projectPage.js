@@ -6,9 +6,9 @@ import Img from 'gatsby-image'
 import {Intro, Layout} from '../components'
 import SEO from '../components/SEO'
 
-const projectPage = ({data}) => {
+const projectPage = ({data, location}) => {
     return ( 
-        <Layout>
+        <Layout pathname={location.pathname}>
             <SEO title={data.contentfulProject.category} description={data.contentfulProject.seoDescription} />
             <Intro/>
             <ProjectPageGrid>
@@ -16,8 +16,8 @@ const projectPage = ({data}) => {
                     <Img fluid={data.contentfulProject.bigImage.fluid} alt={data.contentfulProject.bigImage.title}/>
                 </MainImage>
                 <ProjectDescription>
-                    <h4>{data.contentfulProject.case}</h4>
-                    <h4>{data.contentfulProject.client}</h4>
+                    <h4>Case: {data.contentfulProject.case}</h4>
+                    <h4> Client: {data.contentfulProject.client}</h4>
                     {documentToReactComponents(JSON.parse(data.contentfulProject.projectPageText.raw))}
                     
                 </ProjectDescription>
@@ -63,6 +63,7 @@ const ProjectPageGrid = styled.section`
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 4.545%;
     grid-template-rows: fit-content;
+    grid-row-gap: 9.09%;
 `
 
 const MainImage = styled.div`
@@ -71,6 +72,9 @@ const MainImage = styled.div`
 `
 const ProjectDescription = styled.div`
     grid-column: 3 / span 1;
+    h4 {
+        text-transform: uppercase;
+    }
 `
 const SmallImage = styled.div`
     grid-column: 3 / span 1;
