@@ -13,18 +13,18 @@ const projectPage = ({data, location}) => {
             <Intro/>
             <ProjectPageGrid>
                 <MainImage>
-                    <Img fluid={data.contentfulProject.bigImage.fluid} alt={data.contentfulProject.bigImage.title}/>
+                    <Image fluid={data.contentfulProject.bigImage.fluid} alt={data.contentfulProject.bigImage.title}/>
                 </MainImage>
                 <ProjectDescription>
                     <h4>Case: {data.contentfulProject.case}</h4>
                     <h4> Client: {data.contentfulProject.client}</h4>
                     {documentToReactComponents(JSON.parse(data.contentfulProject.projectPageText.raw))}
-                    
+        
                 </ProjectDescription>
                 {(data.contentfulProject.testimonial !== null) ? 
-                    <p>{data.contentfulProject.testimonial.testimonial}</p> :
+                    <Testimonial>{data.contentfulProject.testimonial.testimonial}</Testimonial> :
                 <SmallImage>
-                    <Img fluid={data.contentfulProject.smallImage.fluid} alt={data.contentfulProject.smallImage.title}/>
+                    <Image fluid={data.contentfulProject.smallImage.fluid} alt={data.contentfulProject.smallImage.title}/>
                  </SmallImage>
             }              
             </ProjectPageGrid>
@@ -42,7 +42,7 @@ export const query = graphql`
             projectPageText {raw}
             bigImage {
                 title
-                fluid (quality: 100){
+                fluid (maxHeight: 600, quality: 100){
                     ...GatsbyContentfulFluid_withWebp_noBase64
                 }
             }
@@ -75,10 +75,23 @@ const ProjectDescription = styled.div`
     h4 {
         text-transform: uppercase;
     }
+    p {
+        margin-top: 1rem;
+    }
 `
 const SmallImage = styled.div`
     grid-column: 3 / span 1;
     grid-row: 2 / span 1;
+`
+const Testimonial = styled.blockquote`
+    font-style: italic;
+    font-weight: 300;
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 1;
+`
+
+const Image = styled(Img)`
+    height: 100%;
 `
  
 export default projectPage;
