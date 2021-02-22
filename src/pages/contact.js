@@ -8,6 +8,7 @@ import {HoverMotion, ProjectOverlay} from '../components/ProjectCard'
 import {motion} from 'framer-motion'
 import LinkedinIcon from '../images/iconmonstr-linkedin-1.svg'
 import IssuuIcon from '../images/issuu-icon_1.svg'
+import MediumIcon from '../images/Medium-icon.svg'
 import SEO from '../components/SEO';
 
 const ContactPage = ({location})=>{
@@ -45,6 +46,7 @@ const ContactPage = ({location})=>{
                 <div className="social-icons">
                     <a href="https://dk.linkedin.com/in/bogna-anna-gebalska" title="Linkedin Profile"><img src={LinkedinIcon} alt="Linkedin Icon linking to Bogna's profile"/></a>
                     <a href="https://issuu.com/bognaannagebalska" title="Portfolio on Issuu"><img src={IssuuIcon} alt="Issue Icon linking to Bogna's profile"/></a>
+                    <a href="https://bognaanna.medium.com/" title="Medium Blog"><img src={MediumIcon} alt="Medium Icon linking to Bogna's profile"/></a>
                 </div>
             </div>
             </ContactGrid>
