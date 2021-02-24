@@ -3,7 +3,7 @@ import {Layout} from '../components'
 import { Title } from '../components/Intro'
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import {HoverMotion, ProjectOverlay} from '../components/ProjectCard'
 import {motion} from 'framer-motion'
 import LinkedinIcon from '../images/iconmonstr-linkedin-1.svg'
@@ -17,9 +17,13 @@ const ContactPage = ({location})=>{
     query {
         contentfulAsset (id: {eq: "398d964c-c0d9-572e-8785-53fd54136985"})
             {description
-            fluid(quality: 100, maxWidth: 700){
-                ...GatsbyContentfulFluid_withWebp_noBase64
-            }}
+                gatsbyImageData (
+                    width: 700
+                    formats: [AUTO, WEBP]
+                    placeholder: NONE
+                    quality: 100
+
+                )}
        }
     `)
     return (
@@ -27,7 +31,7 @@ const ContactPage = ({location})=>{
             <SEO title="Contact"/>
             <ContactGrid>
             <motion.div className="contact_page_image" whileHover="hover" whileTap="hover" initial="rest" animate="rest">
-                <ContactPageImage fluid={data.contentfulAsset.fluid} alt={data.contentfulAsset.description}/>
+                <ContactPageImage image={data.contentfulAsset.gatsbyImageData} alt={data.contentfulAsset.description}/>
                 <ProjectOverlay variants={HoverMotion}>
                     <h4>Illustration</h4>
                     <h5>Copenhagen</h5>
@@ -61,7 +65,7 @@ const ContactGrid = styled.section`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 4.545%;
-    grid-template-rows: auto;
+    grid-template-rows: max-content;
     h4 {
         text-transform: uppercase;
     }
@@ -80,6 +84,7 @@ const ContactGrid = styled.section`
     .social-icons {
         display: flex;
         align-items: flex-end;
+        margin-top: 1.5rem;
         a {
             margin-right: 1.5rem;
         }
@@ -105,11 +110,12 @@ const ContactGrid = styled.section`
     
 `
 
-const ContactPageImage = styled(Img)`
+const ContactPageImage = styled(GatsbyImage)`
     grid-column: 1 / span 2;
+    
 `
 
-const Line = styled.div`
+const Line = styled.span`
     position: absolute;
     right: 0;
     bottom: -30%;

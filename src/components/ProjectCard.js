@@ -25,8 +25,8 @@ export const HoverMotion = {
 
 const ProjectCard = ({title,  id,  featureImageDescription, featureImage, subtitle, slug})=>{
      return (
-        <Link to={`/${slug}`}>
-        <ProjectItem key={id} whileHover="hover" whileTap="hover" initial="rest" animate="rest">
+        <Link to={`/${slug}`} key={id}>
+        <ProjectItem  whileHover="hover" whileTap="hover" initial="rest" animate="rest">
             <GatsbyImage image={featureImage} alt={featureImageDescription} />
             <ProjectOverlay variants={HoverMotion}>
                 <h4>{title}</h4>
