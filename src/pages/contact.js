@@ -3,7 +3,7 @@ import {Layout} from '../components'
 import { Title } from '../components/Intro'
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import Img from 'gatsby-image'
 import {HoverMotion, ProjectOverlay} from '../components/ProjectCard'
 import {motion} from 'framer-motion'
 import LinkedinIcon from '../images/iconmonstr-linkedin-1.svg'
@@ -17,21 +17,18 @@ const ContactPage = ({location})=>{
     query {
         contentfulAsset (id: {eq: "398d964c-c0d9-572e-8785-53fd54136985"})
             {description
-                gatsbyImageData (
-                    width: 700
-                    formats: [AUTO, WEBP]
-                    placeholder: NONE
-                    quality: 100
-
-                )}
-       }
+            fluid (quality: 100 maxWidth: 800){
+                    ...GatsbyContentfulFluid_withWebp_noBase64
+                }
+            }
+        }
     `)
     return (
         <Layout pathname={pathname}>
             <SEO title="Contact"/>
             <ContactGrid>
             <motion.div className="contact_page_image" whileHover="hover" whileTap="hover" initial="rest" animate="rest">
-                <ContactPageImage image={data.contentfulAsset.gatsbyImageData} alt={data.contentfulAsset.description}/>
+                <ContactPageImage fluid={data.contentfulAsset.fluid} alt={data.contentfulAsset.description}/>
                 <ProjectOverlay variants={HoverMotion}>
                     <h4>Illustration</h4>
                     <h5>Copenhagen</h5>
@@ -61,7 +58,7 @@ const ContactPage = ({location})=>{
 }
 
 const ContactGrid = styled.section`
-    margin-top: 6rem;
+    margin-top: 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 4.545%;
@@ -110,7 +107,7 @@ const ContactGrid = styled.section`
     
 `
 
-const ContactPageImage = styled(GatsbyImage)`
+const ContactPageImage = styled(Img)`
     grid-column: 1 / span 2;
     
 `

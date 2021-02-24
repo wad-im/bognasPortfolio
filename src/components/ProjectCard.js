@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
-import { GatsbyImage } from "gatsby-plugin-image"
+import Img from 'gatsby-image'
 import {motion} from 'framer-motion'
 import {Link} from 'gatsby'
 
@@ -27,7 +27,7 @@ const ProjectCard = ({title,  id,  featureImageDescription, featureImage, subtit
      return (
         <Link to={`/${slug}`} key={id}>
         <ProjectItem  whileHover="hover" whileTap="hover" initial="rest" animate="rest">
-            <GatsbyImage image={featureImage} alt={featureImageDescription} />
+            <Img fluid={featureImage} alt={featureImageDescription} />
             <ProjectOverlay variants={HoverMotion}>
                 <h4>{title}</h4>
                 <h5>{subtitle}</h5>
@@ -39,6 +39,9 @@ const ProjectCard = ({title,  id,  featureImageDescription, featureImage, subtit
 
 const ProjectItem = styled(motion.div)`
     position: relative;
+    h4 {
+        width: 80%;
+    }
 `
 export const ProjectOverlay = styled(motion.div)`
     position: absolute;

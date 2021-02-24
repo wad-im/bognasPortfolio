@@ -21,13 +21,9 @@ const ProjectGrid = ()=> {
                         featureImage {
                             title
                             description
-                            gatsbyImageData (
-                                width: 500
-                                formats: [AUTO, WEBP]
-                                placeholder: NONE
-                                quality: 100
-
-                            )
+                            fluid (quality: 100 maxWidth: 400){
+                                ...GatsbyContentfulFluid_withWebp_noBase64
+                            }
                           }
                         }  
                     }
@@ -47,7 +43,7 @@ const ProjectGrid = ()=> {
                      slug={edge.node.slug}
                      featureImageTitle={edge.node.featureImage.title}
                      featureImageDescription={edge.node.featureImage.description}
-                    featureImage={edge.node.featureImage.gatsbyImageData}
+                    featureImage={edge.node.featureImage.fluid}
                      />
                     </Link>
                 )
@@ -57,7 +53,7 @@ const ProjectGrid = ()=> {
 }
 
 const GridContainer = styled.div`
-    margin-top: 6rem;
+    margin-top: 4rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 4.545%;

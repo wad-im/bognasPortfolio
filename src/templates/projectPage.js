@@ -19,14 +19,10 @@ const projectPage = ({data, location}) => {
                     <h4>Case: {data.contentfulProject.case}</h4>
                     <h4> Client: {data.contentfulProject.client}</h4>
                     {documentToReactComponents(JSON.parse(data.contentfulProject.projectPageText.raw))}
-        
                 </ProjectDescription>
-                {(data.contentfulProject.testimonial !== null) ? 
-                    <Testimonial>{data.contentfulProject.testimonial.testimonial}</Testimonial> :
-                <SmallImage>
+                 <SmallImage>
                     <Image fluid={data.contentfulProject.smallImage.fluid} alt={data.contentfulProject.smallImage.title}/>
                  </SmallImage>
-            }              
             </ProjectPageGrid>
         </Layout>
      );
@@ -52,7 +48,7 @@ export const query = graphql`
                     ...GatsbyContentfulFluid_withWebp_noBase64
                 }
             }
-            testimonial {testimonial}
+            
         }
     }
 `
@@ -81,12 +77,6 @@ const ProjectDescription = styled.div`
 `
 const SmallImage = styled.div`
     margin-top: 1.5vw;
-    grid-column: 3 / span 1;
-    grid-row: 2 / span 1;
-`
-const Testimonial = styled.blockquote`
-    font-style: italic;
-    font-weight: 300;
     grid-column: 3 / span 1;
     grid-row: 2 / span 1;
 `

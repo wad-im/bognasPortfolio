@@ -36,7 +36,7 @@ const AboutPage = ({location})=>{
 }
 
 const AboutGrid = styled.div`
-    margin-top: 6rem;
+    margin-top: 4rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 4.545%;
