@@ -58,7 +58,7 @@ export const query = graphql`
 `
 
 const ProjectPageGrid = styled.section`
-    margin-top: 4rem;
+    margin-top: 6rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 4.545%;
