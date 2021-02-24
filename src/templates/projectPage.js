@@ -1,12 +1,16 @@
 import React from 'react'
-import {graphql} from 'gatsby'
+import {graphql, Link} from 'gatsby'
 import styled from 'styled-components'
 import {documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Img from 'gatsby-image'
 import {Intro, Layout} from '../components'
 import SEO from '../components/SEO'
+import ArrowIcon from '../images/arrow.svg'
 
-const projectPage = ({data, location}) => {
+const projectPage = ({data, location, pageContext}) => {
+    const {next, previous} = pageContext
+    const prevURL = previous ? previous.slug : null
+    const nextURL = next ? next.slug : null
     return ( 
         <Layout pathname={location.pathname}>
             <SEO title={data.contentfulProject.category} description={data.contentfulProject.seoDescription} />
@@ -23,6 +27,8 @@ const projectPage = ({data, location}) => {
                  <SmallImage>
                     <Image fluid={data.contentfulProject.smallImage.fluid} alt={data.contentfulProject.smallImage.title}/>
                  </SmallImage>
+                 {prevURL && <Previous to={`/${prevURL}`}><img src={ArrowIcon} alt="Previous Project"/></Previous>}
+                 {nextURL && <Next to={`/${nextURL}`}><img src={ArrowIcon} alt="Previous Project"/></Next> }
             </ProjectPageGrid>
         </Layout>
      );
@@ -54,7 +60,8 @@ export const query = graphql`
 `
 
 const ProjectPageGrid = styled.section`
-    margin-top: 6rem;
+    position:relative;
+    margin-top: 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 4.545%;
@@ -84,5 +91,24 @@ const SmallImage = styled.div`
 const Image = styled(Img)`
     height: 100%;
 `
+
+const Previous = styled(Link)`
+    position: absolute;
+    bottom: 0;
+    left: -4rem;
+    height: fit-content;
+    line-height: 0;
+`
+const Next = styled(Link)`
+    position: absolute;
+    bottom: 0;
+    right: -4rem;
+    height: fit-content;
+    line-height: 0;
+    img {
+        transform: rotate(180deg);
+    }
+`
+
  
 export default projectPage;
