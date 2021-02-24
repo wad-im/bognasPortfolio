@@ -57,7 +57,7 @@ const ContactPage = ({location})=>{
 }
 
 const ContactGrid = styled.section`
-    margin-top: 6rem;
+    margin-top: 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 4.545%;

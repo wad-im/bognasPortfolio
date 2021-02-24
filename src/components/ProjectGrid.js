@@ -53,7 +53,7 @@ const ProjectGrid = ()=> {
 }
 
 const GridContainer = styled.div`
-    margin-top: 6rem;
+    margin-top: 3rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 4.545%;

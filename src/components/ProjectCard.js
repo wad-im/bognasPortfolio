@@ -39,6 +39,9 @@ const ProjectCard = ({title,  id,  featureImageDescription, featureImage, subtit
 
 const ProjectItem = styled(motion.div)`
     position: relative;
+    h4 {
+        width: 80%;
+    }
 `
 export const ProjectOverlay = styled(motion.div)`
     position: absolute;
