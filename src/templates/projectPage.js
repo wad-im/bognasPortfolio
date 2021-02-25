@@ -66,12 +66,23 @@ const ProjectPageGrid = styled.section`
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 4.545%;
     grid-template-rows: fit-content;
-    /* grid-row-gap: 9.09%; */
+    @media (max-width: 54rem) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 36rem) {
+        grid-template-columns: 1fr;
+        grid-column-gap: 0;
+        grid-row-gap: 3.75rem;
+    }
+    
 `
 
 const MainImage = styled.div`
     grid-column: 1 / span 2;
     grid-row: 1 / span 2;
+    @media (max-width: 54rem) {
+        display: none;
+    }
 `
 const ProjectDescription = styled.div`
     grid-column: 3 / span 1;
@@ -81,11 +92,28 @@ const ProjectDescription = styled.div`
     p {
         margin-top: 1.5vw;
     }
+    @media (max-width: 54rem) {
+        grid-column: 2 / span 1;
+        
+    }
+    @media (max-width: 36rem) {
+        grid-column: 1 / span 1;
+    }
 `
 const SmallImage = styled.div`
     margin-top: 1.5vw;
     grid-column: 3 / span 1;
     grid-row: 2 / span 1;
+    @media (max-width: 54rem) {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        margin-top: 0;
+    }
+    @media (max-width: 36rem) {
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 1;
+        
+    }
 `
 
 const Image = styled(Img)`
