@@ -5,7 +5,7 @@ import {documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Img from 'gatsby-image'
 import {Intro, Layout} from '../components'
 import SEO from '../components/SEO'
-import ArrowIcon from '../images/arrow.svg'
+import Arrow from '../images/arrow'
 
 const projectPage = ({data, location, pageContext}) => {
     const {next, previous} = pageContext
@@ -27,8 +27,10 @@ const projectPage = ({data, location, pageContext}) => {
                  <SmallImage>
                     <Image fluid={data.contentfulProject.smallImage.fluid} alt={data.contentfulProject.smallImage.title}/>
                  </SmallImage>
-                 {prevURL && <Previous to={`/${prevURL}`}><img src={ArrowIcon} alt="Previous Project"/></Previous>}
-                 {nextURL && <Next to={`/${nextURL}`}><img src={ArrowIcon} alt="Previous Project"/></Next> }
+                 {prevURL && <Previous to={`/${prevURL}`}>
+                        <Arrow/>
+                     </Previous>}
+                 {nextURL && <Next to={`/${nextURL}`}><Arrow/></Next> }
             </ProjectPageGrid>
         </Layout>
      );
@@ -74,7 +76,9 @@ const ProjectPageGrid = styled.section`
         grid-column-gap: 0;
         grid-row-gap: 3.75rem;
     }
-    
+    .arrow {
+        transition: fill 0.5s ease;
+    }    
 `
 
 const MainImage = styled.div`
@@ -126,6 +130,13 @@ const Previous = styled(Link)`
     left: -4rem;
     height: fit-content;
     line-height: 0;
+    
+    @media (max-width: 54rem){
+        display: none;
+    }
+    &:hover .arrow {
+        fill: rgba(146, 146, 165, 0.8);
+    }
 `
 const Next = styled(Link)`
     position: absolute;
@@ -133,10 +144,17 @@ const Next = styled(Link)`
     right: -4rem;
     height: fit-content;
     line-height: 0;
-    img {
+    .arrow {
         transform: rotate(180deg);
     }
+    &:hover .arrow {
+        fill: rgba(146, 146, 165, 0.8);
+    }    
+    @media (max-width: 54rem){
+        display: none;
+    }
 `
+
 
  
 export default projectPage;
