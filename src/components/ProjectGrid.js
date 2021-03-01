@@ -1,11 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql} from "gatsby"
 import {ProjectCard} from '../components'
 
-const showEventDataHandler = (e)=>{
-    console.log(e)
-}
+
 
 const ProjectGrid = ()=> {
     const data = useStaticQuery(graphql`
@@ -34,7 +32,6 @@ const ProjectGrid = ()=> {
             <GridContainer>
             {data.allContentfulProject.edges.map((edge)=> {
                 return(
-                    <Link to={edge.node.slug} onClick={showEventDataHandler}>
                     <ProjectCard
                      title={edge.node.projectTitle}
                      subtitle={edge.node.subtitle}
@@ -45,7 +42,6 @@ const ProjectGrid = ()=> {
                      featureImageDescription={edge.node.featureImage.description}
                     featureImage={edge.node.featureImage.fluid}
                      />
-                    </Link>
                 )
             })} 
         </GridContainer>

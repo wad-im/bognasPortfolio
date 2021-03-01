@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Link} from 'gatsby'
+import {Link, graphql, useStaticQuery} from 'gatsby'
 import {motion} from 'framer-motion'
 
 
@@ -57,27 +57,44 @@ export const ContactMotion = {
     },
 }
 
-
 const Header = ({pathname})=>{
+    const slugsData = useStaticQuery(graphql`
+    query {
+        allContentfulProject {edges { node {slug}}}
+      }
+    `)
+      const slugs = slugsData.allContentfulProject.edges.map(edge => {
+          return (
+              edge.node.slug
+          )
+      })
+     
+     
       return (
         <HeaderContainer>
             <Menu>
                 <li>
-                    <StyledLink initial={pathname === '/' ? 'show' : 'rest'} whileHover='hover' animate={pathname === '/' ? 'show' : 'rest'} activeClassName='active' to="/">
+                    <StyledLink initial={pathname === '/' ? 'show' : 'rest'} whileHover='hover' animate={pathname === '/' ? 'show' : 'rest'}  to="/">
                         Work
-                        <Line variants={HoverMotion} pathname={pathname} link={'/'} color={'rgba(212, 184, 175, 0.5)'}/>
+                        
+                        {
+                            slugs.includes(pathname.substr(1,)) ? <CrookedLine variants={ContactMotion} pathname={pathname} link={'/'} color={'rgba(212, 184, 175, 0.5)'}/> : <Line variants={HoverMotion} pathname={pathname} link={'/'} color={'rgba(212, 184, 175, 0.5)'}/>
+                        }
                     </StyledLink>
                 </li>
                 <li>
-                    <StyledLink initial={pathname === '/about' ? 'show' : 'rest'} whileHover='hover' animate={pathname === '/about' ? 'show' : 'rest'} activeClassName='active' to="/about">
+                    <StyledLink initial={pathname === '/about' ? 'show' : 'rest'} whileHover='hover' animate={pathname === '/about' ? 'show' : 'rest'}  to="/about">
                         About
                         <Line variants={HoverMotion} pathname={pathname} link={'/about'}color={'rgba(184, 213, 222, 0.5)'}/>
                     </StyledLink>
                 </li>
                 <li>
-                    <StyledLink initial={pathname === '/contact' ? 'show' : 'rest'} whileHover='hover' animate={pathname === '/contact' ? 'show' : 'rest'} activeClassName='active' to="/contact">
+                    <StyledLink initial={pathname === '/contact' ? 'show' : 'rest'} whileHover='hover' animate={pathname === '/contact' ? 'show' : 'rest'} to="/contact">
                         Contact
-                        <ContactLine variants={ContactMotion} pathname={pathname} link={'/contact'} color={'rgba(120, 180, 180, 0.5)'}/> 
+                        
+                        {
+                            slugs.includes(pathname.substr(1,)) ? <Line variants={HoverMotion} pathname={pathname} link={'/contacts'}color={'rgba(120, 180, 180, 0.5)'}/> : <CrookedLine variants={ContactMotion} pathname={pathname} link={'/contact'} color={'rgba(120, 180, 180, 0.5)'}/>
+                        }
                     </StyledLink>
                 </li>
             </Menu>
@@ -85,6 +102,7 @@ const Header = ({pathname})=>{
         
     )
 }
+
 
 const HeaderContainer= styled.nav`
     width: 100%;
@@ -122,10 +140,11 @@ const Line = styled(motion.div)`
     height: clamp(0.83rem, 1.041vw, 1.25rem);
     z-index: -1;
     width: 100%;
+    transform-origin: top right;
     opacity: ${props => props.pathname===props.link ? '1' : '0'};
     background-color: ${props => props.color};
 `
-const ContactLine = styled(motion.div)`
+const CrookedLine = styled(motion.div)`
     position: absolute;
     right: 0;
     bottom: -30%;

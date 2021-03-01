@@ -52,6 +52,7 @@ module.exports = {
         lang: `en`,
       },
     },
+    "gatsby-plugin-offline",
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
