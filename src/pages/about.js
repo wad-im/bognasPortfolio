@@ -3,7 +3,7 @@ import {Layout} from '../components'
 import { Title } from '../components/Intro'
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage} from "gatsby-plugin-image"
 import SEO from '../components/SEO';
 
 
@@ -13,9 +13,14 @@ const AboutPage = ({location})=>{
     query {
         contentfulAsset (id: {eq: "8dbb0ae4-1461-5d16-8d4c-205524453d12"})
             {description
-            fluid(quality: 100, maxWidth: 400, maxHeight: 400){
-                ...GatsbyContentfulFluid_withWebp_noBase64
-            }}
+            gatsbyImageData (
+                quality: 100
+                placeholder: NONE
+                aspectRatio: 1
+                width: 400
+                formats: [AUTO, WEBP]
+            )
+            }
        }
     `)
     return (
@@ -29,7 +34,7 @@ const AboutPage = ({location})=>{
                     <p>If not designing, I am most likely guiding yoga classes or practicing myself.</p>
                     <p>Since one of my side interest is sustainability and cities,  I founded URBANE films&talks project, discussing documentary films.</p>
                 </div>
-                <ProfileImg fluid={data.contentfulAsset.fluid} alt={data.contentfulAsset.description}/>
+                <ProfileImg image={data.contentfulAsset.gatsbyImageData} alt={data.contentfulAsset.description}/>
             </AboutGrid>
         </Layout>
     )
@@ -67,7 +72,7 @@ const AboutGrid = styled.div`
     }
 `
 
-const ProfileImg = styled(Img)`
+const ProfileImg = styled(GatsbyImage)`
     grid-column: 3 / span 1;
     object-fit: cover;
     width: 100%;

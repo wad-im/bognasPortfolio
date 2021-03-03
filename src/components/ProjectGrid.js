@@ -19,9 +19,12 @@ const ProjectGrid = ()=> {
                         featureImage {
                             title
                             description
-                            fluid (quality: 100 maxWidth: 400){
-                                ...GatsbyContentfulFluid_withWebp_noBase64
-                            }
+                            gatsbyImageData (
+                                width: 400
+                                quality: 100
+                                placeholder: NONE
+                                formats: [AUTO, WEBP]
+                            )
                           }
                         }  
                     }
@@ -40,7 +43,7 @@ const ProjectGrid = ()=> {
                      slug={edge.node.slug}
                      featureImageTitle={edge.node.featureImage.title}
                      featureImageDescription={edge.node.featureImage.description}
-                    featureImage={edge.node.featureImage.fluid}
+                    featureImage={edge.node.featureImage.gatsbyImageData}
                      />
                 )
             })} 
