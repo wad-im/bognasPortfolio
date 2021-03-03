@@ -2,7 +2,7 @@ import React from 'react'
 import {graphql, Link} from 'gatsby'
 import styled from 'styled-components'
 import {documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import Img from 'gatsby-image'
+import { GatsbyImage} from "gatsby-plugin-image"
 import {Intro, Layout} from '../components'
 import SEO from '../components/SEO'
 import Arrow from '../images/arrow'
@@ -17,7 +17,7 @@ const projectPage = ({data, location, pageContext}) => {
             <Intro/>
             <ProjectPageGrid>
                 <MainImage>
-                    <Image fluid={data.contentfulProject.bigImage.fluid} alt={data.contentfulProject.bigImage.title}/>
+                    <Image image={data.contentfulProject.bigImage.gatsbyImageData} alt={data.contentfulProject.bigImage.title}/>
                 </MainImage>
                 <ProjectDescription>
                     <h4>Case: {data.contentfulProject.case}</h4>
@@ -25,7 +25,7 @@ const projectPage = ({data, location, pageContext}) => {
                     {documentToReactComponents(JSON.parse(data.contentfulProject.projectPageText.raw))}
                 </ProjectDescription>
                  <SmallImage>
-                    <Image fluid={data.contentfulProject.smallImage.fluid} alt={data.contentfulProject.smallImage.title}/>
+                    <Image image={data.contentfulProject.smallImage.gatsbyImageData} alt={data.contentfulProject.smallImage.title}/>
                  </SmallImage>
                  {prevURL && <Previous to={`/${prevURL}`}>
                         <Arrow/>
@@ -46,15 +46,20 @@ export const query = graphql`
             projectPageText {raw}
             bigImage {
                 title
-                fluid (maxHeight: 600, quality: 100){
-                    ...GatsbyContentfulFluid_withWebp_noBase64
-                }
+                gatsbyImageData (
+                    height: 675
+                    placeholder: NONE
+                    quality: 100
+                    formats: [AUTO, WEBP]
+                )
             }
             smallImage {
                 title
-                fluid (quality: 100){
-                    ...GatsbyContentfulFluid_withWebp_noBase64
-                }
+                gatsbyImageData (
+                    placeholder: NONE
+                    quality: 100
+                    formats: [AUTO, WEBP]
+                )
             }
             
         }
@@ -120,7 +125,7 @@ const SmallImage = styled.div`
     }
 `
 
-const Image = styled(Img)`
+const Image = styled(GatsbyImage)`
     height: 100%;
 `
 
