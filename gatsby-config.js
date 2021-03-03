@@ -21,6 +21,12 @@ module.exports = {
     "gatsby-plugin-styled-components",
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl: `https://bognaanna.design`,
+      },
+    },
     "gatsby-transformer-sharp",
     "gatsby-plugin-image",
     {
