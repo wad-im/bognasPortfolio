@@ -3,6 +3,9 @@ import styled from "styled-components"
 import { GatsbyImage} from "gatsby-plugin-image"
 import {motion} from 'framer-motion'
 import {Link} from 'gatsby'
+import { useMediaQuery } from 'react-responsive'
+
+
 
 export const HoverMotion = {
     rest: {
@@ -24,11 +27,13 @@ export const HoverMotion = {
 }
 
 const ProjectCard = ({title,  id,  featureImageDescription, featureImage, subtitle, slug})=>{
+    const isMobile = useMediaQuery({ query: '(max-width: 36rem)' })
+    const variants = isMobile ? '' : HoverMotion
      return (
         <Link to={`/${slug}`} key={id}>
         <ProjectItem  whileHover="hover" whileTap="hover" initial="rest" animate="rest">
             <GatsbyImage image={featureImage} alt={featureImageDescription} />
-            <ProjectOverlay variants={HoverMotion}>
+            <ProjectOverlay variants={variants}>
                 <h4>{title}</h4>
                 <h5>{subtitle}</h5>
             </ProjectOverlay>
