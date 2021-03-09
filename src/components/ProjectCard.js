@@ -60,6 +60,9 @@ export const ProjectOverlay = styled(motion.div)`
     justify-content: center;
     align-items: center;
     text-align: center;
+    @media (max-width: 36rem){
+        background-color: rgba(255, 255, 255, 0.6)
+    }
 `
 
 
