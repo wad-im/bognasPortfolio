@@ -29,7 +29,7 @@ const AboutPage = ({location})=>{
             <Title>Bogna Anna</Title>
             <AboutGrid>
                 <div className="about_description">
-                    <p>I design with an approach shaped by my mixed interests in art and technical disciplines . My education in architecture and sustainability studies are threads that continue to be present in my design work.</p>
+                    <p>I design with an approach shaped by mixed interests in art and technical disciplines . My education in architecture and sustainability studies are threads that continue to be present in my design work.</p>
                     <p>While designing I enter a space of flow, where I work fully focused and committed to create the best solution to each unique project context.</p>
                     <p>If not by the desk, you can most likely find me in one of the local yoga studios, where I teach and practise.</p>
                     <p>I am also a founder of URBANE films&talks project  - a project discussing documentary films, cities and sustainable urban future.</p>
