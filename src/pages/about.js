@@ -46,6 +46,7 @@ const AboutGrid = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 4.545%;
      .about_description {
+         grid-column: 1 / span 2;
         /* grid-column: span 2;
         column-count: 2;
         column-gap: 4.545%; */
@@ -62,6 +63,7 @@ const AboutGrid = styled.div`
             /* grid-column: span 1;
             column-count: 1;
             column-gap: 0; */
+            grid-column: 1 / span 1;
         }
     }
 
