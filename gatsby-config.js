@@ -73,6 +73,7 @@ module.exports = {
         head: true,
         anonymize: true,
       }
-    }
+    },
+    
   ],
 };

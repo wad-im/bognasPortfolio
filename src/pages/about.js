@@ -29,10 +29,10 @@ const AboutPage = ({location})=>{
             <Title>Bogna Anna</Title>
             <AboutGrid>
                 <div className="about_description">
-                    <p>As a graphic designer, I place myself at the intersection of art and technical fields. I have a Bachelor’s Degree in Architecture and background in sustainability studies that I am always happy to bring in in my projects.</p>
-                    <p>While designing I enter a space of flow, where I work fully focused and committed to create the best solution in the unique project&nbsp;context.</p>
-                    <p>If not designing, I am most likely guiding yoga classes or practicing myself.</p>
-                    <p>Since one of my side interest is sustainability and cities,  I founded URBANE films&talks project, discussing documentary films.</p>
+                    <p>I design with an approach shaped by my mixed interests in art and technical disciplines . My education in architecture and sustainability studies are threads that continue to be present in my design work.</p>
+                    <p>While designing I enter a space of flow, where I work fully focused and committed to create the best solution to each unique project context.</p>
+                    <p>If not by the desk, you can most likely find me in one of the local yoga studios, where I teach and practise.</p>
+                    <p>I am also a founder of URBANE films&talks project  - a project discussing documentary films, cities and sustainable urban future.</p>
                 </div>
                 <ProfileImg image={data.contentfulAsset.gatsbyImageData} alt={data.contentfulAsset.description}/>
             </AboutGrid>
