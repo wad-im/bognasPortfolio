@@ -33,7 +33,7 @@ const AboutPage = ({location})=>{
                         <p>While designing I enter a space of flow, where I work fully focused and committed to create the best solution to each unique project&nbsp;context.</p>
                 </div>
                 <div className="text-bl text-bl-2">
-                        <p>If not by the desk, you can most likely find me in one of the local yoga studios, where I teach and practise.</p>
+                        <p>If not by the desk, you can most likely find me in one of the local yoga studios, where I teach and&nbsp;practise.</p>
                         <p>I am also a founder of URBANE films&talks project  - a project discussing documentary films, cities and sustainable urban future.</p>
                 </div>
                 <ProfileImg image={data.contentfulAsset.gatsbyImageData} alt={data.contentfulAsset.description}/>
