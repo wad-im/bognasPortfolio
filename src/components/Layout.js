@@ -8,7 +8,7 @@ const Layout = ({children, pathname}) => {
         <PageContainer>
             <GlobalStyle/>
             <Header pathname={pathname}/>
-            <Content as="main">
+            <Content>
                 {children}
             </Content>
             <Footer/>
@@ -17,13 +17,11 @@ const Layout = ({children, pathname}) => {
 }
 
 const PageContainer = styled.div`
+    min-height: 100vh;
     display: grid;
     grid-template-columns: 15.625% 68.75% 15.625%;
     grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
-    width: 100%;
     padding: 0 2rem;
-
     @media (max-width: 1220px) {
         grid-template-columns: 8% auto 8%;
     }
@@ -34,7 +32,7 @@ const PageContainer = styled.div`
         grid-template-columns: 1fr;
     }
 `
-const Content = styled.div`
+const Content = styled.main`
     padding: 2rem 0rem;
     grid-column: 2 / span 1;
     @media (max-width: 922px) {

@@ -24,9 +24,12 @@ const projectPage = ({data, location, pageContext}) => {
                     <h4> Client: {data.contentfulProject.client}</h4>
                     {documentToReactComponents(JSON.parse(data.contentfulProject.projectPageText.raw))}
                 </ProjectDescription>
+                 {
+                     data.contentfulProject.smallImage !== null ? 
                  <SmallImage>
                     <Image image={data.contentfulProject.smallImage.gatsbyImageData} alt={data.contentfulProject.smallImage.title}/>
-                 </SmallImage>
+                 </SmallImage> : <div></div>
+                 }
                  {prevURL && <Previous to={`/${prevURL}`}>
                         <Arrow/>
                      </Previous>}
@@ -49,7 +52,7 @@ export const query = graphql`
                 gatsbyImageData (
                     height: 675
                     placeholder: NONE
-                    quality: 100
+                    quality: 80
                     formats: [AUTO, WEBP]
                 )
             }
@@ -57,7 +60,7 @@ export const query = graphql`
                 title
                 gatsbyImageData (
                     placeholder: NONE
-                    quality: 100
+                    quality: 80
                     formats: [AUTO, WEBP]
                 )
             }

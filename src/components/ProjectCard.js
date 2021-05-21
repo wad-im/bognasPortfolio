@@ -26,24 +26,29 @@ export const HoverMotion = {
     },
 }
 
-const ProjectCard = ({title,  id,  featureImageDescription, featureImage, subtitle, slug})=>{
+const ProjectCard = ({title,  id,  featureImageDescription, featureImage, subtitle, slug, tags})=>{
     const isMobile = useMediaQuery({ query: '(max-width: 36rem)' })
     const variants = isMobile ? '' : HoverMotion
      return (
-        <Link to={`/${slug}`} key={id}>
+        <ProjectWrapper to={`/${slug}`} key={id} nitial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} layout>
         <ProjectItem  whileHover="hover" whileTap="hover" initial="rest" animate="rest">
-            <GatsbyImage image={featureImage} alt={featureImageDescription} />
+            <GatsbyImage className='image' image={featureImage} alt={featureImageDescription} />
             <ProjectOverlay variants={variants}>
                 <h4>{title}</h4>
                 <h5>{subtitle}</h5>
             </ProjectOverlay>
         </ProjectItem>
-        </Link>
+        </ProjectWrapper>
     )
 }
 
+const ProjectWrapper = motion(Link)
 const ProjectItem = styled(motion.div)`
     position: relative;
+    width: 100%;
+    .image {
+        width: 100%;
+    }
     h4 {
         width: 80%;
     }
