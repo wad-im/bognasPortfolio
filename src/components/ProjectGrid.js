@@ -13,7 +13,6 @@ const ProjectGrid = ()=> {
                     node {
                         projectTitle
                         subtitle
-                        category
                         id
                         slug
                         tags
@@ -55,7 +54,6 @@ const ProjectGrid = ()=> {
                     <ProjectCard
                      title={edge.node.projectTitle}
                      subtitle={edge.node.subtitle}
-                     category={edge.node.category}
                      key={edge.node.id}
                      slug={edge.node.slug}
                      featureImageTitle={edge.node.featureImage.title}

@@ -4,7 +4,7 @@ import { Title } from '../components/Intro'
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage} from "gatsby-plugin-image"
-import SEO from '../components/SEO';
+import Seo from '../components/SEO';
 
 
 const AboutPage = ({location})=>{
@@ -25,7 +25,7 @@ const AboutPage = ({location})=>{
     `)
     return (
         <Layout pathname={pathname}>
-            <SEO title="About"/>
+            <Seo title="About"/>
             <Title>Bogna Anna</Title>
             <AboutGrid>
                 <div className="text-bl text-bl-1">

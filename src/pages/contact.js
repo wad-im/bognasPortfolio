@@ -9,7 +9,7 @@ import {motion} from 'framer-motion'
 import LinkedinIcon from '../images/iconmonstr-linkedin-1.svg'
 import IssuuIcon from '../images/issuu-icon_1.svg'
 import MediumIcon from '../images/Medium-icon.svg'
-import SEO from '../components/SEO';
+import Seo from '../components/SEO';
 
 const ContactPage = ({location})=>{
     const pathname = location.pathname
@@ -28,7 +28,7 @@ const ContactPage = ({location})=>{
     `)
     return (
         <Layout pathname={pathname}>
-            <SEO title="Contact"/>
+            <Seo title="Contact"/>
             <ContactGrid>
             <motion.div className="contact_page_image" whileHover="hover" whileTap="hover" initial="rest" animate="rest">
                 <ContactPageImage image={data.contentfulAsset.gatsbyImageData} alt={data.contentfulAsset.description}/>

@@ -1,13 +1,13 @@
 import * as React from "react"
 import {Layout, Intro, ProjectGrid} from '../components'
-import SEO from "../components/SEO"
+import Seo from "../components/SEO"
 
 
 
 const IndexPage = ({location}) => {
   return (
     <Layout pathname={location.pathname}>
-      <SEO/>
+      <Seo/>
         <Intro/>
         <ProjectGrid/>
     </Layout>
