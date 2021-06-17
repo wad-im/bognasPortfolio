@@ -12,48 +12,45 @@ const projectPage = ({ data, location, pageContext }) => {
     const prevURL = previous ? previous.slug : null
     const nextURL = next ? next.slug : null
 
-    const { smallTestimonial,
-        bigTestimonial,
-        testimonialType,
+    const { testimonialType,
         testimonialText,
         smallImage,
         testimonialAuthor,
         bigImage,
         optionalSmallImage,
         client,
-        projectPageText } = data.contentfulProject
+        projectPageText,
+        seoDescription } = data.contentfulProject
 
-    const smallTestimonial = testimonialType !== null && testimonialText !== null && testimonialType.includes('Small Testimonial (displayed instead of small image)')
-    const bigTestimonial = testimonialType !== null && testimonialText !== null && testimonialType.includes('Big testimonial (displayed below the large image)')
-    const smallImage = smallImage !== null
-    const bigImage = bigImage !== null
-    const optionalSmallImage = optionalSmallImage !== null && !smallTestimonial
-    const caseContent = data.contentfulProject.case !== null
-    const client = client !== null
-    const description = projectPageText !== null
+    const testimonial = testimonialText !== null ? documentToReactComponents(JSON.parse(testimonialText.raw)) : ''
+    const smallTestimonial = testimonialType !== null && testimonialType.includes('Small Testimonial (displayed instead of small image)')
+    const bigTestimonial = testimonialType !== null && testimonialType.includes('Big testimonial (displayed below the large image)')
+    const smImage = smallImage !== null
+    const bgImage = bigImage !== null ? bigImage : ''
+    const optSmImage = optionalSmallImage !== null && !smallTestimonial
+    const caseName = data.contentfulProject.case !== null ? data.contentfulProject.case : ''
+    const clientName = client !== null ? client : ''
+    const mainText = projectPageText !== null ? documentToReactComponents(JSON.parse(projectPageText.raw)) : ''
 
 
     return (
         <Layout pathname={location.pathname}>
-            <Seo title={data.contentfulProject.client} description={data.contentfulProject.seoDescription} />
+            <Seo title={caseName} description={seoDescription} />
             <Intro />
             <ProjectPageGrid>
-
-                {bigImage ? <GatsbyImage image={bigImage.gatsbyImageData} alt={bigImage.title} className='mainImage' /> : ''}
-
+                <GatsbyImage image={bgImage.gatsbyImageData} alt={bgImage.title} className='bgImage' />
                 <ProjectDescription>
-                    <h4>Case: {caseContent ? data.contentfulProject.case : ''}</h4>
-                    <h4> Client: {client ? client : ''}</h4>
-                    {description ? documentToReactComponents(JSON.parse(projectPageText.raw)) : ''}
+                    <h4>Case: {caseName}</h4>
+                    <h4> Client: {clientName}</h4>
+                    {mainText}
                 </ProjectDescription>
-
                 {
-                    smallImage ?
+                    smImage ?
                         <BelowText>
                             <GatsbyImage image={smallImage.gatsbyImageData} alt={smallImage.title} className='smallImage' />
                         </BelowText>
                         : smallTestimonial ? <BelowText>
-                            {documentToReactComponents(JSON.parse(testimonialText.raw))}
+                            {testimonial}
                             <div className="testimonialAuthor">
                                 {testimonialAuthor.map(line => (
                                     <p key={line}>{line}</p>
@@ -64,18 +61,18 @@ const projectPage = ({ data, location, pageContext }) => {
                 }
                 {
                     bigTestimonial ?
-                        <BigTestimonial>
-                            {documentToReactComponents(JSON.parse(testimonialText.raw))}
+                        <div className='bigTestimonial'>
+                            {testimonial}
                             <div className="testimonialAuthor">
                                 {testimonialAuthor.map(line => (
                                     <p key={line}>{line}</p>
                                 ))}
                             </div>
 
-                        </BigTestimonial> : ''
+                        </div> : ''
                 }
                 {
-                    optionalSmallImage ?
+                    optSmImage ?
                         <OptSmImage>
                             <GatsbyImage image={optionalSmallImage.gatsbyImageData} alt={optionalSmallImage.title} />
                         </OptSmImage> : ''
@@ -152,7 +149,7 @@ const ProjectPageGrid = styled.section`
         grid-column-gap: 0;
         grid-row-gap: 3.75rem;
     }
-    .mainImage {
+    .bgImage {
         grid-column: 1 / span 2;
         grid-row: 1 / span 2;
         @media (max-width: 54rem) {
@@ -161,6 +158,10 @@ const ProjectPageGrid = styled.section`
     }
     .arrow {
         transition: fill 0.5s ease;
+    }
+    .bigTestimonial {
+        grid-column: 1 / span 2;
+        grid-row: 3 / span 1;
     }
     .testimonialAuthor {
         text-align: right;
@@ -216,11 +217,6 @@ const OptSmImage = styled.div`
         grid-column: 1 / span 1;
         grid-row: 2 / span 1;
     }
-`
-
-const BigTestimonial = styled.div`
-    grid-column: 1 / span 2;
-    grid-row: 3 / span 1;
 `
 
 const Previous = styled(Link)`
