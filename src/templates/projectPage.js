@@ -100,7 +100,7 @@ export const query = graphql`
                     width: 880
                     aspectRatio: 1.334
                     placeholder: NONE
-                    quality: 80
+                    quality: 100
                     formats: [AUTO, WEBP]
                 )
             }
@@ -108,7 +108,7 @@ export const query = graphql`
                 title
                 gatsbyImageData (
                     placeholder: NONE
-                    quality: 80
+                    quality: 100
                     formats: [AUTO, WEBP]
                     width: 400
                 )
@@ -117,7 +117,7 @@ export const query = graphql`
                 title
                 gatsbyImageData (
                     placeholder: NONE
-                    quality: 80
+                    quality: 100
                     formats: [AUTO, WEBP]
                     width: 400
                 )
