@@ -22,7 +22,8 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 300;
   }
   h4 {
-    font-size: clamp(0.916rem,1.145vw, 1.374rem);
+    /* font-size: clamp(0.916rem,1.145vw, 1.374rem); */
+    font-size: 1.375rem;
     font-weight: 700;
   }
   h5 {
@@ -32,7 +33,6 @@ const GlobalStyle = createGlobalStyle`
   p {
     font-size: clamp(1rem, 1.25vw, 1.5rem);
     font-weight: 300;
-    line-height: 1.5;
   }
   a {
     text-decoration: none;

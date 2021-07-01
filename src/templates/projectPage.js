@@ -28,60 +28,58 @@ const projectPage = ({ data, location, pageContext }) => {
     const smImage = smallImage !== null
     const bgImage = bigImage !== null ? bigImage : ''
     const optSmImage = optionalSmallImage !== null && !smallTestimonial
+    const optLgImage = !optSmImage && bigTestimonial ? 'larger-smImage' : ''
     const caseName = data.contentfulProject.case !== null ? data.contentfulProject.case : ''
     const clientName = client !== null ? client : ''
     const mainText = projectPageText !== null ? documentToReactComponents(JSON.parse(projectPageText.raw)) : ''
+    
 
+    const expandedProject = bigTestimonial || optSmImage
 
     return (
         <Layout pathname={location.pathname}>
             <Seo title={caseName} description={seoDescription} />
             <Intro />
-            <ProjectPageGrid>
-                <GatsbyImage image={bgImage.gatsbyImageData} alt={bgImage.title} className='bgImage' />
-                <ProjectDescription>
-                    <h4>Case: {caseName}</h4>
-                    <h4> Client: {clientName}</h4>
-                    {mainText}
-                </ProjectDescription>
+            <Container expandedProject={expandedProject}>
+                <GatsbyImage image={bgImage.gatsbyImageData} alt={bgImage.title} className='bg-image' />
+                <div className={`project-details ${optLgImage}`}>
+                    <div>
+                        <h4>Case: {caseName}</h4>
+                        <h4>Client: {clientName}</h4>
+                        {mainText}
+                    </div>
+                    {
+                        smImage ? <GatsbyImage image={smallImage.gatsbyImageData} alt={smallImage.title} className='sm-image' /> : 
+                        smallTestimonial ? 
+                            <div className="testimonial-container" smalltestimonial='true'>
+                                {testimonial}
+                                <div className="testimonial-author">
+                                    {testimonialAuthor && testimonialAuthor.map(item => (
+                                            <p key={item}>{item}</p>
+                                            ))}
+                                </div>
+                            </div> : ''
+                    }
+                </div>
                 {
-                    smImage ?
-                        <BelowText>
-                            <GatsbyImage image={smallImage.gatsbyImageData} alt={smallImage.title} className='smallImage' />
-                        </BelowText>
-                        : smallTestimonial ? <BelowText>
-                            {testimonial}
-                            <div className="testimonialAuthor">
-                                {testimonialAuthor.map(line => (
-                                    <p key={line}>{line}</p>
-                                ))}
-                            </div>
-                        </BelowText>
-                            : ''
+                    optSmImage && <GatsbyImage image={optionalSmallImage.gatsbyImageData} alt={optionalSmallImage.title} className='sm-image opt-image' />
                 }
                 {
-                    bigTestimonial ?
-                        <div className='bigTestimonial'>
-                            {testimonial}
-                            <div className="testimonialAuthor">
-                                {testimonialAuthor.map(line => (
-                                    <p key={line}>{line}</p>
-                                ))}
-                            </div>
-
-                        </div> : ''
-                }
-                {
-                    optSmImage ?
-                        <OptSmImage>
-                            <GatsbyImage image={optionalSmallImage.gatsbyImageData} alt={optionalSmallImage.title} />
-                        </OptSmImage> : ''
+                   bigTestimonial &&
+                    <div className="testimonial-container">
+                        {testimonial}
+                        <div className="testimonial-author">
+                            {testimonialAuthor && testimonialAuthor.map(item => (
+                                    <p key={item}>{item}</p>
+                                    ))}
+                        </div>
+                    </div>
                 }
                 {prevURL && <Previous to={`/${prevURL}`}>
                     <Arrow />
                 </Previous>}
                 {nextURL && <Next to={`/${nextURL}`}><Arrow /></Next>}
-            </ProjectPageGrid>
+            </Container>
         </Layout>
     );
 }
@@ -113,7 +111,6 @@ export const query = graphql`
                     quality: 80
                     formats: [AUTO, WEBP]
                     width: 400
-                    aspectRatio: 1.334
                 )
             }
             optionalSmallImage {
@@ -123,99 +120,58 @@ export const query = graphql`
                     quality: 80
                     formats: [AUTO, WEBP]
                     width: 400
-                    aspectRatio: 1.334
                 )
             }
         }
     }
 `
 // big image ratio 880/660 and small image 400/300, on two pages font size is 20pt not 24, the author is 18, and the testimonial is in italic
-const ProjectPageGrid = styled.section`
+const Container = styled.section`
     position:relative;
     margin-top: 4rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: clamp(3rem, 4.545%, 3.75rem);
-    grid-template-rows: repeat(3, 300px);
-    grid-row-gap: clamp(3rem, 4.545%, 3.75rem);
+    grid-template-columns: 65.15151515% 30.30303030%;
+    grid-column-gap: calc(100% - 65.15151515% - 30.303030%);
+    grid-row-gap: 3.75rem;
     p {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
+        ${props => props.expandedProject && `
+            font-size: 1.25rem;
+        `}
     }
-    @media (max-width: 54rem) {
-        grid-template-columns: 1fr 1fr;
+    .bg-image {
+        aspect-ratio: calc(4/3);
+        width: 100%;
     }
-    @media (max-width: 36rem) {
-        grid-template-columns: 1fr;
-        grid-column-gap: 0;
-        grid-row-gap: 3.75rem;
-    }
-    .bgImage {
-        grid-column: 1 / span 2;
-        grid-row: 1 / span 2;
-        @media (max-width: 54rem) {
-            display: none;
-        } 
-    }
-    .arrow {
-        transition: fill 0.5s ease;
-    }
-    .bigTestimonial {
-        grid-column: 1 / span 2;
-        grid-row: 3 / span 1;
-    }
-    .testimonialAuthor {
-        text-align: right;
-        margin-top: 1rem;
-        p {
-            line-height: 1.2;
-        }
-    }    
-`
-
-
-const ProjectDescription = styled.div`
-    grid-column: 3 / span 1;
-    h4 {
-        text-transform: uppercase;
-    }
-    p {
-        margin-top: 1.5vw;
-    }
-    @media (max-width: 54rem) {
+    .project-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         grid-column: 2 / span 1;
-        
+        h4 {
+            text-transform: uppercase;
+            :nth-of-type(2) {
+                margin-bottom: 1rem;
+            }
+        }
     }
-    @media (max-width: 36rem) {
-        grid-column: 1 / span 1;
+    .larger-smImage {
+        grid-row: 1 / span 2;
     }
-`
-const BelowText = styled.div`
-    margin-top: 1.5vw;
-    grid-column: 3 / span 1;
-    grid-row: 2 / span 1;
-    @media (max-width: 54rem) {
-        grid-column: 1 / span 1;
-        grid-row: 1 / span 1;
-        margin-top: 0;
+    .sm-image {
+        max-width: 400px;
     }
-    @media (max-width: 36rem) {
-        grid-column: 1 / span 1;
-        grid-row: 2 / span 1;
+    .testimonial-container {
+        font-style: italic;
+        grid-row: ${props => props.smalltestimonial ? '' : '2 / span 1'};
     }
-`
-
-const OptSmImage = styled.div`
-    margin-top: 1.5vw;
-    grid-column: 3 / span 1;
-    grid-row: 3 / span 1;
-    @media (max-width: 54rem) {
-        grid-column: 1 / span 1;
-        grid-row: 1 / span 1;
-        margin-top: 0;
-    }
-    @media (max-width: 36rem) {
-        grid-column: 1 / span 1;
-        grid-row: 2 / span 1;
+    .testimonial-author {
+        margin-top: 0.5rem;
+        p {
+            font-size: 1.125rem;
+            text-align: right;
+            font-style: normal;
+        }
     }
 `
 

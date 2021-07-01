@@ -19,9 +19,10 @@ const Layout = ({children, pathname}) => {
 const PageContainer = styled.div`
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 15.625% 68.75% 15.625%;
+    max-width: 120rem;
+    grid-template-columns: auto 68.75% auto;
     grid-template-rows: auto 1fr auto;
-    padding: 0 2rem;
+    /* padding: 0 2rem; */
     @media (max-width: 1220px) {
         grid-template-columns: 8% auto 8%;
     }
