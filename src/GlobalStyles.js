@@ -14,15 +14,14 @@ const GlobalStyle = createGlobalStyle`
     }
   
   h2 {
-    font-size: clamp(1.28rem, 1.6vw, 1.92rem);
+    font-size: 2rem;
     font-weight: 700;
   }
   h3 {
-    font-size: clamp(1rem, 1.25vw, 1.5rem);
+    font-size: 1.5rem;
     font-weight: 300;
   }
   h4 {
-    /* font-size: clamp(0.916rem,1.145vw, 1.374rem); */
     font-size: 1.375rem;
     font-weight: 700;
   }
@@ -31,12 +30,13 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 300;
   }
   p {
-    font-size: clamp(1rem, 1.25vw, 1.5rem);
+    /* font-size: clamp(1rem, 1.25vw, 1.5rem); */
+    font-size: 1.5rem;
     font-weight: 300;
   }
   a {
     text-decoration: none;
-    font-size: clamp(0.916rem,1.145vw, 1.374rem);
+    font-size: 1.375rem;
     font-weight: 300;
     color: #707070;
   }

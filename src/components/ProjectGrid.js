@@ -99,6 +99,7 @@ const Filter = styled.div`
         text-align: left;
         margin: 1rem 1rem 0rem 0rem;
         cursor: pointer;
+        font-size: 0.875rem;
         &.active {
             border-bottom: solid 0.1rem #707070; 
         }
