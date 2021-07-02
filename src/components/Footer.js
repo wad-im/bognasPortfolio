@@ -18,9 +18,6 @@ const FooterContainer = styled.div`
     p {
         font-size: .75rem;
     }
-    @media (max-width: 922px) {
-        grid-column: 1 / span 1;
-    }  
 `
 
 

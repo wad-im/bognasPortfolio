@@ -46,7 +46,7 @@ const projectPage = ({ data, location, pageContext }) => {
             <Container expandedProject={expandedProject}>
                 <GatsbyImage image={bgImage.gatsbyImageData} alt={bgImage.title} className='bg-image' />
                 <div className={`project-details ${optLgImage}`}>
-                    <div>
+                    <div className='project-details-text'>
                         <h4>CASE: {caseName}</h4>
                         <h4>CLIENT: {clientName}</h4>
                         <p>{displayedText}</p>
@@ -174,6 +174,7 @@ const Container = styled.section`
             font-style: normal;
         }
     }
+    
 `
 
 const Previous = styled(Link)`
@@ -183,7 +184,7 @@ const Previous = styled(Link)`
     height: fit-content;
     line-height: 0;
     
-    @media (max-width: 54rem){
+    @media (max-width: 62,75rem) {
         display: none;
     }
     &:hover .arrow {
@@ -202,7 +203,7 @@ const Next = styled(Link)`
     &:hover .arrow {
         fill: rgba(146, 146, 165, 0.8);
     }    
-    @media (max-width: 54rem){
+    @media (max-width: 62.75rem) {
         display: none;
     }
 `

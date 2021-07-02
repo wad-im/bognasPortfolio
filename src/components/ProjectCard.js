@@ -27,7 +27,7 @@ export const HoverMotion = {
 }
 
 const ProjectCard = ({title,  id,  featureImageDescription, featureImage, subtitle, slug, tags})=>{
-    const isMobile = useMediaQuery({ query: '(max-width: 36rem)' })
+    const isMobile = useMediaQuery({ query: '(max-width: 49rem)' })
     const variants = isMobile ? '' : HoverMotion
      return (
         <ProjectWrapper to={`/${slug}`} key={id} nitial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} layout>
@@ -65,7 +65,7 @@ export const ProjectOverlay = styled(motion.div)`
     justify-content: center;
     align-items: center;
     text-align: center;
-    @media (max-width: 36rem){
+    @media (max-width: 30rem){
         background-color: rgba(255, 255, 255, 0.6)
     }
 `

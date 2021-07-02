@@ -77,10 +77,14 @@ const GridContainer = styled.div`
     grid-template-rows: auto;
     grid-row-gap: clamp(3rem, ${props => props.rowGap}, 3.75rem);
     @media (max-width: 83rem) {
-        grid-template-columns: repeat(2, 1fr);
-        grid-row-gap: 3rem;
+        grid-row-gap: 2.5rem;
     }
-    @media (max-width: 36rem) {
+    @media (max-width: 49rem) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap: 1.5rem;
+        grid-column-gap: 1.5rem;
+    }
+    @media (max-width: 30rem) {
         grid-template-columns: 1fr;
         grid-column-gap: 0;
         
@@ -100,9 +104,17 @@ const Filter = styled.div`
         margin: 1rem 1rem 0rem 0rem;
         cursor: pointer;
         font-size: 0.875rem;
+        width: fit-content;
         &.active {
             border-bottom: solid 0.1rem #707070; 
         }
+    }
+    @media (max-width: 49rem){
+        flex-direction: column;
+        button {
+            margin-top: 0.5rem;
+        }
+        
     }
 `
 

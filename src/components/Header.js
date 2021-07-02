@@ -112,9 +112,9 @@ const HeaderContainer= styled.nav`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    @media (max-width: 922px) {
+    /* @media (max-width: 922px) {
         grid-column-start: 1;
-    }  
+    }   */
 `
 const Menu = styled.ul`
     display: flex;

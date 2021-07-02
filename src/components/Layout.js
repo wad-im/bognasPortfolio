@@ -30,15 +30,15 @@ const PageContainer = styled.div`
         grid-template-columns: 4% auto 4%;
     }
     @media (max-width: 922px) {
-        grid-template-columns: 1fr;
+        grid-template-columns: 2rem 1fr 2rem;
     }
 `
 const Content = styled.main`
     padding: 2rem 0rem;
     grid-column: 2 / span 1;
-    @media (max-width: 922px) {
-        grid-column-start: 1;
-    }   
+    /* @media (max-width: 922px) {
+        grid-column-start: 2;
+    }    */
 `
 
 export default Layout
