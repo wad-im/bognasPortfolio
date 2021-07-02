@@ -8,7 +8,7 @@ const IndexPage = ({location}) => {
   return (
     <Layout pathname={location.pathname}>
       <Seo/>
-        <Intro/>
+        <Intro pathname={location.pathname}/>
         <ProjectGrid/>
     </Layout>
   )

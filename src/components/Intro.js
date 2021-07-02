@@ -2,10 +2,11 @@ import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 
-const Intro = ()=>{
+const Intro = ({pathname})=>{
+    const link = pathname === '/' ? '/about' : '/'
     return (
         <div>
-            <Link to="/">
+            <Link to={link}>
             <Title>
                 Bogna Anna
             </Title>

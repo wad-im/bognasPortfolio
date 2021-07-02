@@ -2,13 +2,14 @@ import React from 'react'
 import {Layout} from '../components'
 import { Title } from '../components/Intro'
 import styled from 'styled-components';
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import { GatsbyImage} from "gatsby-plugin-image"
 import Seo from '../components/SEO';
 
 
 const AboutPage = ({location})=>{
     const pathname = location.pathname
+    const link = pathname === '/' ? '/about' : '/'
     const data = useStaticQuery(graphql`
     query {
         contentfulAsset (id: {eq: "8dbb0ae4-1461-5d16-8d4c-205524453d12"})
@@ -26,7 +27,9 @@ const AboutPage = ({location})=>{
     return (
         <Layout pathname={pathname}>
             <Seo title="About"/>
-            <Title>Bogna Anna</Title>
+            <Link to={link}>
+                <Title>Bogna Anna</Title>
+            </Link>
             <AboutGrid>
                 <div className="text-bl text-bl-1">
                         <p>I design with an approach shaped by mixed interests in art and technical disciplines . My education in architecture and sustainability studies are threads that continue to be present in my design work.</p>
