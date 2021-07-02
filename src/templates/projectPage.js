@@ -134,9 +134,8 @@ const Container = styled.section`
     grid-column-gap: calc(100% - 65.15151515% - 30.303030%);
     grid-row-gap: 3.75rem;
     p {
-        font-size: 1.5rem;
         ${props => props.expandedProject && `
-            font-size: 1.25rem;
+            font-size: clamp(0,875rem,1.0416666vw,1.25rem);
         `}
     }
     .bg-image {
@@ -168,7 +167,7 @@ const Container = styled.section`
     .testimonial-author {
         margin-top: 0.5rem;
         p {
-            font-size: 1.125rem;
+            font-size: clamp(0.75rem, 0.9375vw, 1.125rem);
             text-align: right;
             font-style: normal;
         }

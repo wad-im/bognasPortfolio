@@ -14,15 +14,15 @@ const GlobalStyle = createGlobalStyle`
     }
   
   h2 {
-    font-size: 2rem;
+    font-size: clamp(1.3333rem, 1.666667vw, 2rem);
     font-weight: 700;
   }
   h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 1.25vw, 1.5rem);
     font-weight: 300;
   }
   h4 {
-    font-size: 1.375rem;
+    font-size: clamp(0.916667rem, 1.145833vw, 1.375rem);
     font-weight: 700;
   }
   h5 {
@@ -30,13 +30,12 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 300;
   }
   p {
-    /* font-size: clamp(1rem, 1.25vw, 1.5rem); */
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 1.25vw, 1.5rem);
     font-weight: 300;
   }
   a {
     text-decoration: none;
-    font-size: 1.375rem;
+    font-size: clamp(0.916667rem, 1.145833vw, 1.375rem);
     font-weight: 300;
     color: #707070;
   }
