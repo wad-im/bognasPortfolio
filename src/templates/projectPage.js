@@ -125,17 +125,17 @@ export const query = graphql`
         }
     }
 `
-// big image ratio 880/660 and small image 400/300, on two pages font size is 20pt not 24, the author is 18, and the testimonial is in italic
 const Container = styled.section`
     position:relative;
     margin-top: 4rem;
     display: grid;
     grid-template-columns: 65.15151515% 30.30303030%;
     grid-column-gap: calc(100% - 65.15151515% - 30.303030%);
-    grid-row-gap: 3.75rem;
+    grid-row-gap: clamp(2.5rem, 5.988%, 3.75rem);
     p {
+        font-size: clamp(0.875rem, 1.0416666vw, 1.25rem);
         ${props => props.expandedProject && `
-            font-size: clamp(0,875rem,1.0416666vw,1.25rem);
+            font-size: clamp(0.875rem,1.0416666vw,1.25rem);
         `}
     }
     .bg-image {
