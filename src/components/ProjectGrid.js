@@ -73,7 +73,7 @@ const GridContainer = styled.div`
     margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: clamp(3rem, 4.545%, 3.75rem);
+    grid-column-gap: clamp(2.5rem, 4.545%, 3.75rem);
     grid-template-rows: auto;
     grid-row-gap: clamp(3rem, ${props => props.rowGap}, 3.75rem);
     @media (max-width: 83rem) {

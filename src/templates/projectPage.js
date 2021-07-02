@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { GatsbyImage } from "gatsby-plugin-image"
+import { removeWidows } from "string-remove-widows";
 import { Intro, Layout } from '../components'
 import Seo from '../components/SEO'
 import Arrow from '../images/arrow'
@@ -31,8 +32,10 @@ const projectPage = ({ data, location, pageContext }) => {
     const optLgImage = !optSmImage && bigTestimonial ? 'larger-smImage' : ''
     const caseName = data.contentfulProject.case !== null ? data.contentfulProject.case : ''
     const clientName = client !== null ? client : ''
-    const mainText = projectPageText !== null ? documentToReactComponents(JSON.parse(projectPageText.raw)) : ''
-    
+    const mainText = projectPageText !== null ? (documentToReactComponents(JSON.parse(projectPageText.raw)))[0].props.children[0] : ''
+    const noBreak = '\u00A0';
+    const { res } = removeWidows(mainText);
+    const displayedText = res.replace(/&nbsp;/gi, noBreak)
 
     const expandedProject = bigTestimonial || optSmImage
 
@@ -44,9 +47,9 @@ const projectPage = ({ data, location, pageContext }) => {
                 <GatsbyImage image={bgImage.gatsbyImageData} alt={bgImage.title} className='bg-image' />
                 <div className={`project-details ${optLgImage}`}>
                     <div>
-                        <h4>Case: {caseName}</h4>
-                        <h4>Client: {clientName}</h4>
-                        {mainText}
+                        <h4>CASE: {caseName}</h4>
+                        <h4>CLIENT: {clientName}</h4>
+                        <p>{displayedText}</p>
                     </div>
                     {
                         smImage ? <GatsbyImage image={smallImage.gatsbyImageData} alt={smallImage.title} className='sm-image' /> : 
@@ -148,7 +151,6 @@ const Container = styled.section`
         justify-content: space-between;
         grid-column: 2 / span 1;
         h4 {
-            text-transform: uppercase;
             :nth-of-type(2) {
                 margin-bottom: 1rem;
             }
