@@ -54,7 +54,7 @@ const projectPage = ({ data, location, pageContext }) => {
                     {
                         smImage ? <GatsbyImage image={smallImage.gatsbyImageData} alt={smallImage.title} className='sm-image' /> : 
                         smallTestimonial ? 
-                            <div className="testimonial-container" smalltestimonial='true'>
+                            <div className="testimonial-container smalltestimonial" smalltestimonial='true'>
                                 {testimonial}
                                 <div className="testimonial-author">
                                     {testimonialAuthor && testimonialAuthor.map(item => (
@@ -159,9 +159,6 @@ const Container = styled.section`
     .larger-smImage {
         grid-row: 1 / span 2;
     }
-    .sm-image {
-        max-width: 400px;
-    }
     .testimonial-container {
         font-style: italic;
         grid-row: ${props => props.smalltestimonial ? '' : '2 / span 1'};
@@ -174,7 +171,25 @@ const Container = styled.section`
             font-style: normal;
         }
     }
-    
+    @media (max-width: 59rem){
+      grid-template-columns: 1fr;
+      grid-column-gap: 0;
+      .project-details {
+          grid-column: 1 / span 1;
+          grid-row: 1 / span 1;
+      } 
+      .sm-image {
+          display: none;
+      }
+      .bg-image {
+          grid-column: 1 / span 1;
+          grid-row: 2 / span 1;
+      }
+      .testimonial-container {
+          grid-column: 1 / span 1;
+          grid-row: 3 / span 1;
+      }
+    }
 `
 
 const Previous = styled(Link)`

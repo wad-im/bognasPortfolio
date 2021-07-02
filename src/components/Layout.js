@@ -23,15 +23,15 @@ const PageContainer = styled.div`
     grid-template-columns: auto 68.75% auto;
     grid-template-rows: auto 1fr auto;
     /* padding: 0 2rem; */
-    @media (max-width: 1220px) {
+    @media (max-width: 79rem) {
         grid-template-columns: 8% auto 8%;
     }
     @media (max-width: 1004px) {
-        grid-template-columns: 4% auto 4%;
-    }
-    @media (max-width: 922px) {
         grid-template-columns: 2rem 1fr 2rem;
     }
+    /* @media (max-width: 922px) {
+        grid-template-columns: 2rem 1fr 2rem;
+    } */
 `
 const Content = styled.main`
     padding: 2rem 0rem;
