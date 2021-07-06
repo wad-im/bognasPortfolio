@@ -60,17 +60,17 @@ const projectPage = ({ data, location, pageContext }) => {
                             <p key={item}>{item}</p>
                         ))}
                     </div>
-                    {
+                    {   
                         smImage ? <GatsbyImage image={smallImage.gatsbyImageData} alt={smallImage.title} className='sm-image' /> : 
-                        smallTestimonial ? 
-                            <div className="testimonial-container smalltestimonial" smalltestimonial='true'>
+                        smallTestimonial  ? 
+                            <div className="testimonial-container smalltestimonial smalltestimonial-desktop" smalltestimonial='true'>
                                 {testimonial}
                                 <div className="testimonial-author">
                                     {testimonialAuthor && testimonialAuthor.map(item => (
                                             <p key={item}>{item}</p>
                                             ))}
                                 </div>
-                            </div> : ''
+                            </div> : null
                     }
                 </div>
                 {
@@ -149,6 +149,7 @@ const Container = styled.section`
         ${props => props.expandedProject && `
             font-size: clamp(0.875rem,1.0416666vw,1.25rem);
         `}
+        margin-bottom: 0.5rem;
     }
     .bg-image {
         aspect-ratio: calc(4/3);
@@ -178,7 +179,11 @@ const Container = styled.section`
             font-size: clamp(0.75rem, 0.9375vw, 1.125rem);
             text-align: right;
             font-style: normal;
+            margin-bottom: 0;
         }
+    }
+    .smalltestimonial-mobile {
+        display: none;
     }
     @media (max-width: 59rem){
       grid-template-columns: 1fr;
@@ -231,7 +236,5 @@ const Next = styled(Link)`
         display: none;
     }
 `
-
-
 
 export default projectPage;

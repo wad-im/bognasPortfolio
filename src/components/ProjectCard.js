@@ -26,7 +26,7 @@ export const HoverMotion = {
     },
 }
 
-const ProjectCard = ({title,  id,  featureImageDescription, featureImage, subtitle, slug, tags})=>{
+const ProjectCard = ({title,  id,  featureImageDescription, featureImage, subtitle, slug})=>{
     const isMobile = useMediaQuery({ query: '(max-width: 49rem)' })
     const variants = isMobile ? '' : HoverMotion
      return (
