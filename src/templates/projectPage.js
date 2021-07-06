@@ -32,11 +32,18 @@ const projectPage = ({ data, location, pageContext }) => {
     const optLgImage = !optSmImage && bigTestimonial ? 'larger-smImage' : ''
     const caseName = data.contentfulProject.case !== null ? data.contentfulProject.case : ''
     const clientName = client !== null ? client : ''
-    const mainText = projectPageText !== null ? (documentToReactComponents(JSON.parse(projectPageText.raw)))[0].props.children[0] : ''
-    const noBreak = '\u00A0';
-    const { res } = removeWidows(mainText);
-    const displayedText = res.replace(/&nbsp;/gi, noBreak)
 
+    const displayText = (text) => {
+        const mainText = (documentToReactComponents(JSON.parse(text.raw)))
+        const toBeDisplayedText = mainText.map(item => {
+            const { res } = removeWidows(item.props.children[0]);
+            const noBreak = '\u00A0';
+            const textWithoutWidow = res.replace(/&nbsp;/gi, noBreak)
+            return textWithoutWidow
+        })
+        return toBeDisplayedText
+    }
+    const mainText = projectPageText !== null ? displayText(projectPageText) : ''
     const expandedProject = bigTestimonial || optSmImage
 
     return (
@@ -49,7 +56,9 @@ const projectPage = ({ data, location, pageContext }) => {
                     <div className='project-details-text'>
                         <h4>CASE: {caseName}</h4>
                         <h4>CLIENT: {clientName}</h4>
-                        <p>{displayedText}</p>
+                        {mainText.map(item => (
+                            <p key={item}>{item}</p>
+                        ))}
                     </div>
                     {
                         smImage ? <GatsbyImage image={smallImage.gatsbyImageData} alt={smallImage.title} className='sm-image' /> : 
