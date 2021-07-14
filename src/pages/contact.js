@@ -43,7 +43,7 @@ const ContactPage = ({location})=>{
                     <Title>Bogna Anna</Title>
                     <p>bognaanna.design@gmail.com</p>
                     <p className="description">
-                        Previously living in Milan, Stockholm and Lodz, I am now based in Copenhagen, where I am looking forward to get my hands on design projects and hear about new pportunities.
+                        Previously living in Milan, Stockholm and Lodz, I am now based in Copenhagen, where I am looking forward to get my hands on design projects and hear about new opportunities.
                     </p>
                     <p  className="description">
                         You are welcome to contact me with an inquiry about my design services and to talk about design ideas. Just <span className="underlined"><a href="mailto:bognaanna.design@gmail.com">drop me a line!</a><Line color='rgba(230, 102, 54, 0.5)'/></span>
@@ -84,7 +84,7 @@ const ContactGrid = styled.section`
         justify-content: space-between;
     }
     .description {
-        margin: 1.5rem 0;
+        margin: clamp(1rem, 1.5vw, 1.5rem) 0;
     }
     .social-icons {
         display: flex;

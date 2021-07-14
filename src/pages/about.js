@@ -53,7 +53,7 @@ const AboutGrid = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 4.545%;
      .text-bl p {
-            margin-bottom: 1.5rem;
+            margin-bottom: clamp(1rem, 1.5vw, 1.5rem);
         }
     .text-bl-1 {
         grid-column: 1 / span 1;
