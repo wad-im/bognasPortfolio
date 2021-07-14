@@ -33,13 +33,13 @@ const AboutPage = ({location})=>{
             <Intro pathname={pathname}/>
             <AboutGrid>
                 <div className="text-bl text-bl-1">
-                        <p>My design approach stems from architecture studies, where aesthetics and composition goes hand in hand with technical solutions. That practical, users oriented mindset pervades my design thinking.</p>
-                        <p>Sustainability studies, which I took at KTH in Stockholm, brought an important aspet to my design work and together with Scandinavian design and my East European roots give a distinct basis for my creative work.</p>
+                        <p>My design approach stems from architecture studies, where aesthetics and composition goes hand in hand with technical solutions. That practical, users oriented mindset pervades my design&nbsp;thinking.</p>
+                        <p>Sustainability studies, which I took at KTH in Stockholm, brought an important aspet to my design work and together with Scandinavian design and my East European roots give a distinct basis for my creative&nbsp;work.</p>
                 </div>
                 <div className="text-bl text-bl-2">
                         <p>While designing I enter a space of flow, where I work fully focused and committed to create the best solution to each unique project&nbsp;context.</p>
                         <p>If not by the desk, you will most likely find me trekking in nature or teaching and practicing in one of the local yoga&nbsp;studios.</p>
-                        <p>Few years ago, I founded URBANE films&talks - a project discussing documentary films, cities and sustainable urban future, out of my passion for these fields.</p>
+                        <p>Few years ago, I founded URBANE films&talks - a project discussing documentary films, cities and sustainable urban future, out of my passion for these&nbsp;fields.</p>
                 </div>
                 <ProfileImg image={data.contentfulAsset.gatsbyImageData} alt={data.contentfulAsset.description}/>
             </AboutGrid>
