@@ -27,19 +27,16 @@ const AboutPage = ({location})=>{
     return (
         <Layout pathname={pathname}>
             <Seo title="About"/>
-            {/* <Link to={link}>
-                <Title>Bogna Anna</Title>
-            </Link> */}
             <Intro pathname={pathname}/>
             <AboutGrid>
                 <div className="text-bl text-bl-1">
-                        <p>My design approach stems from architecture studies, where aesthetics and composition goes hand in hand with technical solutions. That practical, users oriented mindset pervades my design&nbsp;thinking.</p>
-                        <p>Sustainability studies, which I took at KTH in Stockholm, brought an important aspet to my design work and together with Scandinavian design and my East European roots give a distinct basis for my creative&nbsp;work.</p>
+                        <p>My design approach stems from architecture studies, where aesthetics and composition go hand in hand with technical solutions. That practical, user-oriented mindset pervades my design&nbsp;thinking.</p>
+                        <p>Sustainability studies, which I took at Royal Institute of Technology in Stockholm, brought an important aspect to my design work and together with Scandinavian influence and my Eastern European roots give a distinct basis for my creative&nbsp;work.</p>
                 </div>
                 <div className="text-bl text-bl-2">
-                        <p>While designing I enter a space of flow, where I work fully focused and committed to create the best solution to each unique project&nbsp;context.</p>
-                        <p>If not by the desk, you will most likely find me trekking in nature or teaching and practicing in one of the local yoga&nbsp;studios.</p>
-                        <p>Few years ago, I founded URBANE films&talks - a project discussing documentary films, cities and sustainable urban future, out of my passion for these&nbsp;fields.</p>
+                        <p>While designing, I enter a space of flow, where I work fully focused and committed to create the best solution to each unique project&nbsp;context.</p>
+                        <p>If not by the desk, you most likely find me trekking in nature or teaching and practicing in one of the local yoga&nbsp;studios.</p>
+                        <p>Few years ago I founded URBANE films&talks - a project discussing documentary films, cities and sustainable urban future, out of my passion for these&nbsp;fields.</p>
                 </div>
                 <ProfileImg image={data.contentfulAsset.gatsbyImageData} alt={data.contentfulAsset.description}/>
             </AboutGrid>
@@ -53,7 +50,8 @@ const AboutGrid = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 4.545%;
      .text-bl p {
-            margin-bottom: clamp(1rem, 1.5vw, 1.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.5;
         }
     .text-bl-1 {
         grid-column: 1 / span 1;
