@@ -84,7 +84,7 @@ const ContactGrid = styled.section`
         justify-content: space-between;
     }
     .description {
-        margin: 1.5vw 0;
+        margin: 1.5rem 0;
     }
     .social-icons {
         display: flex;
