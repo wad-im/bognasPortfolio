@@ -43,9 +43,14 @@ const ContactPage = ({location})=>{
                     <Title>Bogna Anna</Title>
                     <p>bognaanna.design@gmail.com</p>
                     <p className="description">
-                    Previously, living in Milan, Stockholm and Lodz, I am now based in Copenhagen, where I am looking forward to hear about design projects and new opportunities.
+                        Previously living in Milan, Stockholm and Lodz, I am now based in Copenhagen, where I am looking forward to get my hands on design projects and hear about new pportunities.
                     </p>
-                    <p>You are welcome to contact me with an inquiry about design and my services. Just <span className="underlined"><a href="mailto:bognaanna.design@gmail.com">drop me a line!</a><Line color='rgba(230, 102, 54, 0.5)'/></span></p>
+                    <p  className="description">
+                        You are welcome to contact me with an inquiry about my design services and to talk about design ideas. Just <span className="underlined"><a href="mailto:bognaanna.design@gmail.com">drop me a line!</a><Line color='rgba(230, 102, 54, 0.5)'/></span>
+                    </p>
+                    <p>
+                    I am happy to connect with other designers, take part in and support design & art events and film festivals.
+                    </p>
                 </div>
                 <div className="social-icons">
                     <a href="https://dk.linkedin.com/in/bogna-anna-gebalska" title="Linkedin Profile"><img src={LinkedinIcon} alt="Linkedin Icon linking to Bogna's profile"/></a>

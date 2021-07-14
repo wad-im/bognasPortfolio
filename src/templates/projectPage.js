@@ -146,9 +146,6 @@ const Container = styled.section`
     grid-row-gap: clamp(2.5rem, 5.988%, 3.75rem);
     p {
         font-size: clamp(0.875rem, 1.0416666vw, 1.25rem);
-        ${props => props.expandedProject && `
-            font-size: clamp(0.875rem,1.0416666vw,1.25rem);
-        `}
         margin-bottom: 0.5rem;
     }
     .bg-image {

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Layout} from '../components'
-import { Title } from '../components/Intro'
+import Intro from '../components/Intro'
 import styled from 'styled-components';
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { GatsbyImage} from "gatsby-plugin-image"
@@ -27,17 +27,19 @@ const AboutPage = ({location})=>{
     return (
         <Layout pathname={pathname}>
             <Seo title="About"/>
-            <Link to={link}>
+            {/* <Link to={link}>
                 <Title>Bogna Anna</Title>
-            </Link>
+            </Link> */}
+            <Intro pathname={pathname}/>
             <AboutGrid>
                 <div className="text-bl text-bl-1">
-                        <p>I design with an approach shaped by mixed interests in art and technical disciplines . My education in architecture and sustainability studies are threads that continue to be present in my design work.</p>
-                        <p>While designing I enter a space of flow, where I work fully focused and committed to create the best solution to each unique project&nbsp;context.</p>
+                        <p>My design approach stems from architecture studies, where aesthetics and composition goes hand in hand with technical solutions. That practical, users oriented mindset pervades my design thinking.</p>
+                        <p>Sustainability studies, which I took at KTH in Stockholm, brought an important aspet to my design work and together with Scandinavian design and my East European roots give a distinct basis for my creative work.</p>
                 </div>
                 <div className="text-bl text-bl-2">
-                        <p>If not by the desk, you can most likely find me in one of the local yoga studios, where I teach and&nbsp;practise.</p>
-                        <p>I am also a founder of URBANE films&talks project  - a project discussing documentary films, cities and sustainable urban future.</p>
+                        <p>While designing I enter a space of flow, where I work fully focused and committed to create the best solution to each unique project&nbsp;context.</p>
+                        <p>If not by the desk, you will most likely find me trekking in nature or teaching and practicing in one of the local yoga&nbsp;studios.</p>
+                        <p>Few years ago, I founded URBANE films&talks - a project discussing documentary films, cities and sustainable urban future, out of my passion for these fields.</p>
                 </div>
                 <ProfileImg image={data.contentfulAsset.gatsbyImageData} alt={data.contentfulAsset.description}/>
             </AboutGrid>
@@ -51,7 +53,7 @@ const AboutGrid = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 4.545%;
      .text-bl p {
-            margin-bottom: 1.5vw;
+            margin-bottom: 1rem;
         }
     .text-bl-1 {
         grid-column: 1 / span 1;

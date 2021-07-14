@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 300;
   }
   p {
-    font-size: clamp(1rem, 1.25vw, 1.5rem);
+    font-size: clamp(0.875rem, 1.0416666vw, 1.25rem);
     font-weight: 300;
   }
   a {
