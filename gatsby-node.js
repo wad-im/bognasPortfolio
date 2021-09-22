@@ -1,5 +1,5 @@
 const path = require('path')
-const { nextTick } = require('process')
+
 
 module.exports.createPages = async ({graphql, actions}) => {
     const {createPage} = actions

@@ -2,14 +2,13 @@ import React from 'react'
 import {Layout} from '../components'
 import Intro from '../components/Intro'
 import styled from 'styled-components';
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage} from "gatsby-plugin-image"
 import Seo from '../components/SEO';
 
 
 const AboutPage = ({location})=>{
     const pathname = location.pathname
-    const link = pathname === '/' ? '/about' : '/'
     const data = useStaticQuery(graphql`
     query {
         contentfulAsset (id: {eq: "8dbb0ae4-1461-5d16-8d4c-205524453d12"})

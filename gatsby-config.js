@@ -66,13 +66,6 @@ module.exports = {
         createLinkInHead: true,
       }
     },
-    {
-      resolve: 'gatsby-plugin-gtag',
-      options: {
-        trackingId: process.env.GOOGLE_TAGMANAGER_ID,
-        head: true,
-        anonymize: true,
-      }
-    },
+    
   ],
 };
